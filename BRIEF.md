@@ -75,9 +75,12 @@ Helps prospective clients understand who Sunny is, what she does, what she offer
 - **Reviews:** The Knot 61 reviews, WeddingWire 33 (4.9). 2026 five-star reviews in `content/reviews.md`.
 
 ## Homepage directions
-- **Sections compared:** <3 sections>
-- **Claude Design canvas:** <link>
-- **Directions:** A: … / B: … / C: …
+- **Sections compared:** Hero · Recent weddings · Service packages
+- **Claude Design canvas:** https://claude.ai/artifact/XmyW1DffVUPNQr2XSzTyiq
+- **Directions:**
+  - **A, Quiet Editorial** (closest to Dear Blanc): cream #FFFEF9 / #F6F4EB, light uppercase Montserrat with wide tracking, Lora body at 2× line height, olive-gold #6E5F36, square buttons, full-bleed photo hero, staggered collage, services flanked by two portraits.
+  - **B, Island Romance:** blush sand #FBF5F0 / #F3E6DD, Cormorant Garamond display + Mulish body, clay #8C4F3F, pill buttons, rounded hero photo with an overlapping text card, arch-topped photos and package cards.
+  - **C, Modern Gallery:** ivory #FBFAF7, Archivo display (large, tight) + Inter body, ocean slate #2F5D6B (a nod to her current blue-grey), split hero, feature-tile gallery grid, dark charcoal services band.
 
 ## Chosen direction
 - **Direction:** <name, and any mix-ins>
