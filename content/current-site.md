@@ -88,7 +88,7 @@ Our role is to bring that vision to life while making sure the experience remain
 
 **FAQ**
 - **How much does a wedding planner in Hawaiʻi cost?** One & Only Events' 2026 planning services typically range from $6,500 to $8,000 for weddings with up to 100 guests. Final pricing depends on the planning package, venue, guest count, number of locations, event hours, travel requirements, and logistical complexity.
-  - ⚠ Conflicts with the packages PDF, where Day of Coordination starts at $2,500 and Partial at $5,500. $6,500–$8,000 is the Full Planning range only. Confirm with Sunny.
+  - ⚠ Out of date: the newer packages PDF has Full Planning from $7,500, Partial from $6,000, and Day of Coordination from $2,500 (indoor) / $4,500 (outdoor). Confirm the FAQ wording with Sunny.
 - **Do you plan destination weddings?** Yes. We help couples living in Hawaiʻi, on the continental United States, and internationally plan weddings throughout the islands. Planning support may include vendor recommendations, hotel room blocks, guest transportation, local logistics, and wedding-day management.
 - **What is the difference between planning and coordination?** Planning services provide guidance before the final months of the wedding and may include budgeting, vendor recommendations, contract review, logistics, and design direction. Coordination is intended for couples who have already planned the wedding and need professional support beginning approximately two months before the event.
 - **Do you plan multicultural weddings?** Yes. One & Only Events welcomes multicultural, multilingual, and blended-family celebrations. Traditions are approached thoughtfully so they feel meaningful, respectful, and naturally integrated into the wedding experience.
@@ -113,10 +113,12 @@ We believe a wedding is about more than just beautiful decor — it's about crea
 Note: About and Home overlap heavily; the About page is an older version of the Home copy.
 
 ## Services
-The page only shows the three package names with images and an "Explore All Services" link to a PDF. Package details, from the PDF "Wedding Planning Packages – 2026":
+The page only shows the three package names with images and an "Explore All Services" link to a PDF. Package details, from the PDF "Wedding Planning Packages – 2026".
+
+**Use the newer PDF** (named in the scope): https://www.oneandonly.events/_files/ugd/934ca0_ace479df4bca4ef0a323dac03a4d6427.pdf. Its inclusions match the older menu-linked PDF (…b8018f48…), but its prices differ. Prices below are from the newer one.
 
 ### Full Planning Service
-Typical investment: $6,500 – $8,000
+Typical investment: starting at $7,500 (older PDF: $6,500 – $8,000)
 - Getting to know your vision, priorities, and overall wedding goals
 - Thoughtful budget guidance with clear cost breakdowns
 - Trusted vendor recommendations aligned with your style and budget
@@ -131,7 +133,7 @@ Typical investment: $6,500 – $8,000
 - Professional judgment calls as needed to keep everything running smoothly
 
 ### Partial Planning Service
-Typical investment: $5,500 – $7,000
+Typical investment: starting at $6,000 (older PDF: $5,500 – $7,000)
 - Immediate planning support — no waiting period
 - Curated vendor recommendations tailored to your needs
 - Planning tools and worksheets to keep everything organized
@@ -143,7 +145,10 @@ Typical investment: $5,500 – $7,000
 - Professional judgment calls as needed to keep everything running smoothly
 
 ### Day of Coordination Service
-Typical investment: $2,500 – $5,000
+Typical investment:
+- Indoor events: starting at $2,500
+- Outdoor events: starting at $4,500
+(older PDF: $2,500 – $5,000)
 - Planning support beginning about two months before the wedding
 - Review of vendor contracts, invoices, floor plans, and orders
 - Setup and teardown of light personal décor
@@ -153,10 +158,10 @@ Typical investment: $2,500 – $5,000
 - Professional judgment calls as needed to keep everything running smoothly
 
 ### A Few Helpful Notes
-- Investment ranges are based on celebrations with up to 100 guests.
+- Investments are based on celebrations with up to 100 guests.
 - Pricing is tailored to your venue, guest count, and level of planning support. Final investment may adjust accordingly.
 - Rates assume a single location for both ceremony and reception.
-- Most celebrations wrap around 10 PM; extended hours can absolutely be accommodated (additional fees may apply).
+- Most celebrations wrap around 10 PM; extended hours can be accommodated (additional fees may apply).
 - Service availability may vary depending on venue.
 
 ## Portfolio
