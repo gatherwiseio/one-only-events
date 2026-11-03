@@ -3,7 +3,7 @@
 ## Status
 - [x] Phase 1: Repo, local folder, Vercel project
 - [x] Phase 2: Brief (scope, inspiration, brand)
-- [ ] Phase 3: Homepage direction chosen
+- [x] Phase 3: Homepage direction chosen
 - [ ] Phase 4: All scoped pages live
 
 ## Project
@@ -87,16 +87,33 @@ Helps prospective clients understand who Sunny is, what she does, what she offer
   - **A1:** full-bleed slideshow, text and controls bottom-left, a jump-link bar along the bottom; three-column masonry where the middle column moves faster on scroll; package cards that expand in place to show every inclusion.
   - **A2:** split hero (cream panel with an "Explore" jump list, slideshow with progress bars on the right); bento grid with scroll reveals and inner zoom, plus a slowly drifting photo ribbon; a side-by-side comparison table of all 16 inclusions.
   - **A3:** framed slideshow inset on cream with a caption, prev/next and "Scroll to explore" bar under it; an overlapping editorial mosaic with three parallax speeds; three columns with a "What's included" pop-up.
+- **Round 3:** A4 combines A3's hero (made full-bleed like A, nav over the slideshow), A3's mosaic and A1's package cards. **A4 chosen.**
 
 ## Chosen direction
-- **Direction:** <name, and any mix-ins>
-- **Colors:** <hex: role, …>
-- **Heading font:** <Google font, weights>
-- **Body font:** <Google font, weights>
-- **Type scale:** 
-- **Spacing feel:** 
-- **Buttons / links:** 
-- **Image treatment:** 
+- **Direction:** A4 · Quiet Editorial mix (artboard `A4.dc.html` on https://claude.ai/artifact/XmyW1DffVUPNQr2XSzTyiq)
+  - **Hero:** full-bleed crossfading photo slideshow (6s per slide, slow 1.1 → 1 zoom), from the very top of the page with the white nav over it. Small text block bottom-left: label "Hawaiʻi wedding planning & design", title "Your day, your story, your way", link "Meet Sunny". A thin strip along the bottom: photo caption and "n / 5" on the left, previous / pause / next in the middle, "Scroll to explore ↓" on the right. Pauses for reduced motion.
+  - **Recent weddings:** centered section heading + intro, then an overlapping 12-column editorial mosaic (7 photos, varied aspect ratios and offsets) with three parallax speeds (±30, ±90, ±160px) driven by CSS scroll-driven animation; 2 columns on phones, no offsets. Link "View the portfolio".
+  - **Service packages:** three equal cards on the sand band: name, price, description, "best for" line (italic), 3 highlights with gold dots, "+ See all N inclusions" expands the card in place, "Learn more" link to `/services#<id>`. Pricing note, then primary "Plan with Sunny" and link "Compare all services".
+- **Colors:**
+  - `surface` #FFFEF9 (cream page background)
+  - `surface-alt` #F6F4EB (sand band)
+  - `ink` #373737 (text)
+  - `ink-muted` #55524A (secondary text)
+  - `accent` #6E5F36 (olive-gold: links, labels, prices, dots, buttons; 5.7:1 on sand, 6:1 on cream)
+  - `accent-deep` #4F4426 (hover)
+  - `accent-soft` #A8986D (decorative only, never text)
+  - `line` #E4DFD0 (hairlines inside cards)
+  - On photos: white text over a dark gradient
+- **Heading font:** Montserrat 300 (titles), 400 (card titles), 500 (labels, nav, buttons), 600 (links). Uppercase, tracked 0.10–0.28em.
+- **Body font:** Lora 400 and 400 italic ("best for" lines only)
+- **Type scale:** display/hero 26–38px (clamp), section title 26–34px, card title 18px, body 16px at line-height 1.85–2.0, small body 15px, label/nav/button 12px
+- **Spacing feel:** very airy. Sections 88–150px vertical padding, content max 1200px, 20–64px side gutters.
+- **Buttons / links:**
+  - Primary: filled olive-gold, white uppercase 12px Montserrat 500, square corners, 48px tall, one per section at most ("Plan with Sunny")
+  - Secondary: 1px olive-gold outline, square corners, 44px tall ("+ See all inclusions")
+  - Link: olive-gold Montserrat 600 uppercase, underlined, no arrow ("View the portfolio", "Learn more")
+- **Image treatment:** full-bleed photography in the hero, square corners everywhere, no frames or shadows, slow zoom in the hero, parallax in the mosaic. Bright natural Hawaiʻi photos mixed with black and white.
+- **Motion:** CSS only (crossfade, scroll-driven parallax); everything off under `prefers-reduced-motion`.
 
 ## Assets needed
 - ...
