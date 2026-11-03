@@ -77,10 +77,16 @@ Helps prospective clients understand who Sunny is, what she does, what she offer
 ## Homepage directions
 - **Sections compared:** Hero · Recent weddings · Service packages
 - **Claude Design canvas:** https://claude.ai/artifact/XmyW1DffVUPNQr2XSzTyiq
-- **Directions:**
-  - **A, Quiet Editorial** (closest to Dear Blanc): cream #FFFEF9 / #F6F4EB, light uppercase Montserrat with wide tracking, Lora body at 2× line height, olive-gold #6E5F36, square buttons, full-bleed photo hero, staggered collage, services flanked by two portraits.
-  - **B, Island Romance:** blush sand #FBF5F0 / #F3E6DD, Cormorant Garamond display + Mulish body, clay #8C4F3F, pill buttons, rounded hero photo with an overlapping text card, arch-topped photos and package cards.
-  - **C, Modern Gallery:** ivory #FBFAF7, Archivo display (large, tight) + Inter body, ocean slate #2F5D6B (a nod to her current blue-grey), split hero, feature-tile gallery grid, dark charcoal services band.
+- **Round 1:** A Quiet Editorial / B Island Romance / C Modern Gallery. **A chosen** (B and C removed from the canvas).
+  - A: cream #FFFEF9 / #F6F4EB, light uppercase Montserrat with wide tracking, Lora body at 2× line height, olive-gold #6E5F36, square buttons.
+- **Round 2 feedback on A:**
+  - Hero: a background photo slideshow like Dear Blanc's, not big centered text and a button. Still needs a clear "this is a wedding planner" signal and quick ways to jump down to sections.
+  - Recent weddings: a mosaic gallery with parallax or scroll animation.
+  - Packages: not Dear Blanc's center-text layout. Three clear standard columns so the differences are easy to see, a quick way to see what's included (expand or pop-up), and a link to the Services page.
+- **Round 2 variations:**
+  - **A1:** full-bleed slideshow, text and controls bottom-left, a jump-link bar along the bottom; three-column masonry where the middle column moves faster on scroll; package cards that expand in place to show every inclusion.
+  - **A2:** split hero (cream panel with an "Explore" jump list, slideshow with progress bars on the right); bento grid with scroll reveals and inner zoom, plus a slowly drifting photo ribbon; a side-by-side comparison table of all 16 inclusions.
+  - **A3:** framed slideshow inset on cream with a caption, prev/next and "Scroll to explore" bar under it; an overlapping editorial mosaic with three parallax speeds; three columns with a "What's included" pop-up.
 
 ## Chosen direction
 - **Direction:** <name, and any mix-ins>
