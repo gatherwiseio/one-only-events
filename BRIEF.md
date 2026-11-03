@@ -12,7 +12,7 @@
 - **Slug:** one-only-events
 - **Repo:** https://github.com/gatherwiseio/one-only-events
 - **Vercel project:** one-only-events (gatherwiseio team)
-- **Live URL:** <filled in after first deploy>
+- **Live URL:** https://one-only-events.vercel.app
 - **Custom domain:** none yet
 
 ## Scope
