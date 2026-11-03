@@ -114,6 +114,18 @@ Helps prospective clients understand who Sunny is, what she does, what she offer
   - Link: olive-gold Montserrat 600 uppercase, underlined, no arrow ("View the portfolio", "Learn more")
 - **Image treatment:** full-bleed photography in the hero, square corners everywhere, no frames or shadows, slow zoom in the hero, parallax in the mosaic. Bright natural Hawaiʻi photos mixed with black and white.
 - **Motion:** CSS only (crossfade, scroll-driven parallax); everything off under `prefers-reduced-motion`.
+- **Tokens in code:** all in `src/app/globals.css` `@theme`: colors (`surface`, `surface-alt`, `ink`, `ink-muted`, `accent`, `accent-deep`, `accent-soft`, `line`, `on-photo`, `on-photo-muted`, `panel`, `on-panel`, `on-panel-muted`, `accent-on-dark`, `photo-fallback`), fonts (`display` Montserrat, `body` Lora), type (`text-hero`, `text-title`, `text-card-title`, `text-quote`, `text-body`, `text-body-sm`, `text-price`, `text-label`, `text-wordmark`, `text-display-xl`), spacing (`section`, `gutter`, `group`, `tap`, `button`), widths (`max-w-content` 1200, `max-w-wide` 1240, `max-w-copy` 600, `max-w-hero-copy` 560), breakpoint `xs` 380px, motion (`ease-soft`, `animate-hero-zoom`). Layout variables in `:root`: `--hero-h`, parallax distances, photo scrims. Copy and data in `src/content/site.ts`.
+  - Gotcha: don't name a spacing token `block` (Tailwind v4 reads `inline-block` as `inline-size: var(--spacing-block)`).
 
 ## Assets needed
-- ...
+- **Logo:** Sunny's portfolio gallery includes a logo (pink rainbow-arch mark in a green circle, "ONE & ONLY · EST. 2022 · HAWAII"), saved as `public/images/brand/logo-original.png` (1080px PNG). The header currently uses a text wordmark. Ask whether to use, redraw or skip it, and for the original files.
+- **Photographer credits** for every photo (only Kim Raaf, for Sunny's portraits, is known).
+- **Inquiry destination:** the Contact page isn't built yet, so "Plan with Sunny" / "Start your inquiry" aren't clickable. Decide where inquiries go until then (email, her current form, a new form).
+- **Email and phone** for the Contact page (The Knot lists (808) 304-9751; confirm).
+
+## Homepage photos
+Downloaded originals stay outside the repo; optimized copies in `public/images/`:
+- Hero slideshow: `hero/couple-mokolii-lawn`, `hero/oceanfront-floral-aisle`, `hero/mountain-lawn-ceremony`, `hero/couple-palm-garden`, `hero/reception-dance-floor`
+- About: `sunny/sunny-portrait` (Kim Raaf). Process: `sunny/sunny-at-work`.
+- Recent weddings mosaic: `weddings/oceanfront-ceremony-chairs`, `couple-florals-kiss`, `couple-palms-lawn`, `painted-floral-cake`, `archway-ceremony`, `black-white-carry`, `palm-grove-procession`
+- Call to action: `weddings/lei-ceremony`. Unused for now: `weddings/bridal-shoes-details`.
