@@ -6,12 +6,12 @@ import { weddings } from "@/content/site";
 export function RecentWeddings() {
   return (
     <section id="weddings" aria-labelledby="weddings-title" className="scroll-mt-20 overflow-hidden bg-surface-alt px-gutter py-section">
-      <div className="mx-auto flex max-w-content flex-col items-center gap-6 text-center">
+      <div className="mx-auto flex max-w-content flex-col items-start gap-6 text-left md:items-center md:text-center">
         <SectionHeading id="weddings-title" title={weddings.title} label={weddings.label} />
         <p className="max-w-copy text-body">{weddings.intro}</p>
       </div>
       <WeddingsMosaic photos={weddings.photos} />
-      <div className="mt-group text-center md:mt-24">
+      <div className="mt-group md:mt-24 md:text-center">
         <Button href={weddings.link.href} live={weddings.link.live}>
           {weddings.link.label}
         </Button>

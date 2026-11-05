@@ -47,7 +47,7 @@ export function Hero() {
         <a href={hero.scrollCue.href} className="-ml-3 flex w-6 flex-none justify-center">
           <span className="sr-only">{hero.scrollCue.label}</span>
           <span className="relative h-full w-px overflow-hidden bg-on-photo/35" aria-hidden="true">
-            <span className="absolute inset-x-0 top-0 h-1/3 animate-scroll-cue bg-on-photo" />
+            <span className="absolute inset-x-0 top-0 h-1/3 animate-scroll-cue bg-pink" />
           </span>
         </a>
         <div className="flex flex-col gap-3">

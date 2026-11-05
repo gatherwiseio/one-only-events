@@ -29,7 +29,7 @@ export function MobileMenu({ tone }: { tone: "light" | "dark" }) {
     };
   }, [open]);
 
-  const buttonTone = tone === "dark" ? "border-on-photo text-on-photo" : "border-ink text-ink";
+  const iconButton = "-mr-2.5 inline-flex size-tap flex-none items-center justify-center";
 
   return (
     <div className="md:hidden">
@@ -39,12 +39,12 @@ export function MobileMenu({ tone }: { tone: "light" | "dark" }) {
         onClick={() => setOpen(true)}
         aria-expanded={open}
         aria-controls="mobile-menu"
-        className={`inline-flex size-tap items-center justify-center border font-display text-label font-medium uppercase xs:size-auto xs:min-h-tap xs:px-4 ${buttonTone}`}
+        className={`${iconButton} ${tone === "dark" ? "text-on-photo" : "text-ink"}`}
       >
-        <svg className="xs:hidden" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
-          <path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" strokeWidth="1.5" />
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" strokeWidth="1.5" />
         </svg>
-        <span className="sr-only xs:not-sr-only">Menu</span>
+        <span className="sr-only">Menu</span>
       </button>
 
       {open
@@ -55,24 +55,20 @@ export function MobileMenu({ tone }: { tone: "light" | "dark" }) {
               role="dialog"
               aria-modal="true"
               aria-label="Menu"
-              className="fixed inset-0 z-50 flex flex-col overflow-y-auto overscroll-contain bg-surface px-gutter pt-6 pb-10"
+              className="fixed inset-0 z-50 flex flex-col overflow-y-auto overscroll-contain bg-surface px-gutter pb-10"
             >
-              <div className="flex items-center justify-between gap-6">
-                <Logo />
-                <button
-                  ref={closeRef}
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  className="inline-flex size-tap items-center justify-center border border-ink font-display text-label font-medium uppercase text-ink xs:size-auto xs:min-h-tap xs:px-4"
-                >
-                  <svg className="xs:hidden" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
-                    <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" strokeWidth="1.5" />
+              {/* Same padding and sizes as the page header, so the logo and button don't move */}
+              <div className="flex items-center justify-between gap-6 py-2">
+                <Logo tone="ink" />
+                <button ref={closeRef} type="button" onClick={() => setOpen(false)} className={`${iconButton} text-ink`}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.5" />
                   </svg>
-                  <span className="sr-only xs:not-sr-only">Close</span>
+                  <span className="sr-only">Close</span>
                 </button>
               </div>
-              <nav aria-label="Main" className="mt-group">
-                <ul className="flex flex-col">
+              <nav aria-label="Main" className="mt-6">
+                <ul className="flex flex-col border-t border-line">
                   {pages.map((page) => (
                     <li key={page.href} className="border-b border-line">
                       <NavLink

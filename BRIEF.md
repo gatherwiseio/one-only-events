@@ -155,3 +155,9 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
 - About mosaic: `sunny/sunny-portrait`, `sunny/sunny-light-painting-close`, `sunny/sunny-styling-table` (Kim Raaf portraits).  Unused now: `sunny/sunny-at-work`.
 - Recent weddings mosaic: `weddings/oceanfront-ceremony-chairs`, `couple-florals-kiss`, `couple-palms-lawn`, `painted-floral-cake`, `archway-ceremony`, `black-white-carry`, `palm-grove-procession`
 - Call to action: `weddings/lei-ceremony`.
+- **Phones and small screens, 2026-11-05:**
+  - **Header and menu:** the menu button is a plain hamburger icon (no border, no "Menu" text). The open menu's top bar has the same padding and button size as the page header, so the logo and button don't move. Its logo is ink black, and the close button is a plain X. The links sit closer to the top, with a divider above About.
+  - **Left alignment:** below 768px, section titles and other centered text are left-aligned (headings, Recent weddings intro and link, the CTA, review links). "What's included" stays centered.
+  - **How it works:** on phones, the rail stops at step 4's circle. This is done in CSS: the last step paints the section background over the rail below its circle. Replay is centered.
+  - **Hero:** the scroll cue beam is pink (`--color-pink`).
+  - **Local previews:** the Next.js dev badge is turned off (`devIndicators: false`).

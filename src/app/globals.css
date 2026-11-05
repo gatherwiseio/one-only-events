@@ -220,8 +220,8 @@
 
   /* How it works: one rail joining four stops, from the first circle's center to the last's.
      Its fill grows via --fill (0–1, set by the Process component).
-     Below lg: a vertical rail down the left, text beside each icon; the component sets
-     --rail-tail so the rail stops at the last circle. From lg: four centered columns, with
+     Below lg: a vertical rail down the left, text beside each icon; under the last circle the
+     rail is covered with the section background, so the line visibly ends at that circle. From lg: four centered columns, with
      "Step N" above each icon and the text below, and a horizontal rail between the first and
      last circle centers. */
   .timeline {
@@ -231,7 +231,7 @@
     position: absolute;
     left: calc(var(--stop-size) / 2 - 1px);
     top: calc(var(--stop-size) / 2);
-    bottom: var(--rail-tail, 0px);
+    bottom: 0;
     width: 2px;
     background: var(--color-line);
   }
@@ -250,6 +250,16 @@
     align-content: start;
     column-gap: 1.25rem;
     row-gap: 0.5rem;
+  }
+  .stop:last-child { position: relative; }
+  .stop:last-child::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: calc(var(--stop-size) / 2);
+    bottom: 0;
+    width: var(--stop-size);
+    background: var(--color-surface-alt);
   }
   .stop-label { grid-area: label; }
   .stop-icon { grid-area: icon; align-self: start; }
@@ -278,6 +288,7 @@
       text-align: center;
     }
     .stop-body { justify-self: stretch; text-align: left; }
+    .stop:last-child::before { content: none; }
     .stop-label { line-height: var(--stop-label-h); margin-bottom: var(--stop-label-gap); }
     .stop-title { margin-top: 1.5rem; margin-bottom: 0.5rem; }
   }

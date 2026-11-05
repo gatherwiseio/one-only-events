@@ -19,7 +19,7 @@ export function Reviews() {
           </figure>
         ))}
       </div>
-      <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-2">
+      <div className="mt-10 flex flex-wrap gap-x-10 md:justify-center gap-y-2">
         {reviews.links.map((link) => (
           <Button key={link.href} href={link.href} external>
             {link.label}

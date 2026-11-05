@@ -11,9 +11,9 @@ type Props = {
 
 const titleTone = { light: "text-ink", dark: "text-on-photo", inherit: "text-inherit" };
 
-/** Every section's title: a large, light, tracked uppercase title with one label line under it. */
+/** Every section's title (centered titles are left-aligned on phones): a large, light, tracked uppercase title with one label line under it. */
 export function SectionHeading({ id, title, label, align = "center", tone = "light", labelColor = "accent", as: Tag = "h2" }: Props) {
-  const alignment = align === "center" ? "items-center text-center" : "items-start text-left";
+  const alignment = align === "center" ? "items-start text-left md:items-center md:text-center" : "items-start text-left";
   const labelClass =
     tone === "inherit"
       ? "text-(--section-label)"

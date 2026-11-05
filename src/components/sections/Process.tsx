@@ -51,16 +51,6 @@ export function Process() {
       const stops = gsap.utils.toArray<HTMLElement>("[data-stop]");
       if (!fill || !rail) return;
 
-      // On the vertical rail, stop at the last circle's center rather than the bottom of the list
-      const timelineEl = rail.parentElement!;
-      const setTail = () => {
-        const t = timelineEl.getBoundingClientRect();
-        const last = stops[stops.length - 1].getBoundingClientRect();
-        timelineEl.style.setProperty("--rail-tail", `${t.bottom - (last.top + last.height / 2)}px`);
-      };
-      setTail();
-      const observer = new ResizeObserver(setTail);
-      observer.observe(timelineEl);
 
       // How far along the rail (0–1) each stop's center sits, in whichever direction it runs
       const stopAt = (i: number) => {
@@ -89,10 +79,7 @@ export function Process() {
         timeline.current = tl;
         ScrollTrigger.create({ trigger: "[data-timeline]", start: "top 70%", once: true, onEnter: () => tl.play() });
       });
-      return () => {
-        observer.disconnect();
-        mm.revert();
-      };
+      return () => mm.revert();
     },
     { scope: root },
   );
@@ -138,7 +125,7 @@ export function Process() {
             })}
           </ol>
         </div>
-        <div className="flex min-h-tap items-center justify-end">
+        <div className="flex min-h-tap items-center justify-center">
           {done ? (
             <button
               type="button"
