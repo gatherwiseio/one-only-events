@@ -3,13 +3,12 @@
 import { useGSAP } from "@gsap/react";
 import confetti from "canvas-confetti";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ClipboardList, MessageCircleHeart, PartyPopper, Puzzle, RotateCcw } from "lucide-react";
 import { useRef, useState } from "react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { process, type ProcessStep } from "@/content/site";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(useGSAP);
 
 const icons: Record<ProcessStep["icon"], typeof PartyPopper> = {
   talk: MessageCircleHeart,
@@ -77,18 +76,30 @@ export function Process() {
         tl.to(fill, { "--fill": 1, duration: TRAVEL, ease: "power1.inOut" }, "<");
         tl.call(() => setDone(true));
         timeline.current = tl;
-        ScrollTrigger.create({ trigger: "[data-timeline]", start: "top 70%", once: true, onEnter: () => tl.play() });
-        // Once started, the sequence pauses wherever it is while the timeline is off screen and
-        // carries on when it's back, so the confetti never fires out of sight.
-        ScrollTrigger.create({
-          trigger: "[data-timeline]",
-          start: "top bottom",
-          end: "bottom top",
-          onToggle: ({ isActive }) => {
-            const started = tl.progress() > 0 && tl.progress() < 1;
-            if (started) tl.paused(!isActive);
+        // Starts only once the timeline is actually on screen (top past 70% of the viewport), and
+        // pauses wherever it is while the timeline is off screen, so the confetti never fires out
+        // of sight. IntersectionObserver reports what's really visible, so a page loaded or
+        // restored below this section doesn't start it.
+        const el = root.current?.querySelector<HTMLElement>("[data-timeline]");
+        if (!el) return;
+        const starter = new IntersectionObserver(
+          ([entry]) => {
+            if (!entry.isIntersecting) return;
+            tl.play();
+            starter.disconnect();
           },
+          { rootMargin: "0px 0px -30% 0px" },
+        );
+        const watcher = new IntersectionObserver(([entry]) => {
+          const progress = tl.progress();
+          if (progress > 0 && progress < 1) tl.paused(!entry.isIntersecting);
         });
+        starter.observe(el);
+        watcher.observe(el);
+        return () => {
+          starter.disconnect();
+          watcher.disconnect();
+        };
       });
       return () => mm.revert();
     },
