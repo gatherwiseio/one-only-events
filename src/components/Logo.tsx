@@ -1,15 +1,29 @@
 import Link from "next/link";
 import { business } from "@/content/site";
 
-export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
+type Tone = "light" | "dark" | "panel";
+
+const toneClass: Record<Tone, string> = {
+  light: "text-brand",
+  dark: "text-on-photo",
+  panel: "text-on-panel",
+};
+
+/** The ONE & ONLY wordmark (vector), with the business name kept as real text for screen readers. */
+export function Wordmark({ tone = "light" }: { tone?: Tone }) {
   return (
-    <Link
-      href="/"
-      translate="no"
-      className={`inline-flex min-h-tap items-center font-display text-wordmark font-medium uppercase ${tone === "dark" ? "text-on-photo" : "text-ink"}`}
-    >
-      {business.shortName}
-      <span className="sr-only"> Events, home</span>
+    <span translate="no" className={toneClass[tone]}>
+      <span className="wordmark" aria-hidden="true" />
+      <span className="sr-only">{business.name}</span>
+    </span>
+  );
+}
+
+export function Logo({ tone = "light" }: { tone?: Tone }) {
+  return (
+    <Link href="/" className="inline-flex min-h-tap items-center">
+      <Wordmark tone={tone} />
+      <span className="sr-only">, home</span>
     </Link>
   );
 }

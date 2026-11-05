@@ -63,7 +63,12 @@ Helps prospective clients understand who Sunny is, what she does, what she offer
   - Photography: bright, natural, Hawaiʻi oceanfront and garden settings, colorful florals, mixed with black-and-white candids.
 
 ## Brand
-- **Logo:** none yet (current site uses the text "One & Only" in a Cinzel-style serif)
+- **Logo:** "ONE & ONLY" serif wordmark in green #3D6B1F (supplied by Stephanie on 2026-11-05; original PNG in `public/images/brand/wordmark-original.png`). Rebuilt as a vector: `public/images/brand/wordmark.svg` (7.5 KB, single path, even-odd fill).
+  - Letters: outlines from **Forum** (SIL OFL), each fitted to the matching letter's box in the original (E stretched 13% wider, L 8%, others under 5%).
+  - Ampersand: no open font matched, so it's traced from the original with potrace at 6× and checked by overlay.
+  - Used as a CSS mask (`.wordmark` in globals.css) so one file serves every color: white on photos, brand green `--color-brand` on cream, `on-panel` in the footer.
+  - Also found: a round badge logo (pink rainbow arch, "EST. 2022") in her old gallery, `public/images/brand/logo-original.png`, not used.
+  - Favicon: not made yet (the wordmark is too wide for a 16px icon).
 - **Colors:** current site: near-black #1E1E1E, dusty blue-grey #95AEBA, white. Not necessarily kept.
 - **Fonts:** current site: Cinzel, Poppins. Not necessarily kept.
 - **Photos:** 13 portfolio images + hero + 4 portraits of Sunny (Kim Raaf) on the current site; links in `content/current-site.md`. Not downloaded yet.
@@ -118,7 +123,7 @@ Helps prospective clients understand who Sunny is, what she does, what she offer
   - Gotcha: don't name a spacing token `block` (Tailwind v4 reads `inline-block` as `inline-size: var(--spacing-block)`).
 
 ## Assets needed
-- **Logo:** Sunny's portfolio gallery includes a logo (pink rainbow-arch mark in a green circle, "ONE & ONLY · EST. 2022 · HAWAII"), saved as `public/images/brand/logo-original.png` (1080px PNG). The header currently uses a text wordmark. Ask whether to use, redraw or skip it, and for the original files.
+- **Favicon:** decide on a mark for the browser tab (e.g. the ampersand alone, or the old round badge).
 - **Photographer credits** for every photo (only Kim Raaf, for Sunny's portraits, is known).
 - **Inquiry destination:** the Contact page isn't built yet, so "Plan with Sunny" / "Start your inquiry" aren't clickable. Decide where inquiries go until then (email, her current form, a new form).
 - **Email and phone** for the Contact page (The Knot lists (808) 304-9751; confirm).

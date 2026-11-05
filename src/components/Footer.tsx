@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-content flex-col gap-10">
         <div className="flex flex-wrap items-start justify-between gap-10">
           <div className="flex max-w-copy flex-col gap-3">
-            <Logo tone="dark" />
+            <Logo tone="panel" />
             <p className="text-body-sm text-on-panel-muted">
               {business.tagline} Wedding planning and design throughout&nbsp;{business.place}.
             </p>

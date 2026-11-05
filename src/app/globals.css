@@ -21,6 +21,7 @@
   --color-on-panel-muted: #c9c3b5;
   --color-accent-on-dark: #cdbe94;
   --color-photo-fallback: #4f4d4a;
+  --color-brand: #3d6b1f;
 
   /* Fonts */
   --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
@@ -48,9 +49,6 @@
   --text-label: 0.75rem;
   --text-label--line-height: 1.5;
   --text-label--letter-spacing: 0.24em;
-  --text-wordmark: 1.125rem;
-  --text-wordmark--line-height: 1.2;
-  --text-wordmark--letter-spacing: 0.2em;
   --text-display-xl: clamp(2rem, 1.4rem + 3vw, 3.5rem);
   --text-display-xl--line-height: 1.2;
   --text-display-xl--letter-spacing: 0.12em;
@@ -94,6 +92,8 @@
 
 :root {
   --hero-h: clamp(36rem, 92svh, 55rem);
+  --wordmark-w: clamp(9.5rem, 8rem + 4vw, 12.5rem);
+  --wordmark-ratio: 7960 / 890;
   --slide-fade: 1.4s;
   --parallax-a: 30px;
   --parallax-b: 90px;
@@ -148,6 +148,15 @@
 }
 
 @layer components {
+  /* The ONE & ONLY wordmark: one vector file used as a mask, colored by `currentColor` */
+  .wordmark {
+    display: block;
+    width: var(--wordmark-w);
+    aspect-ratio: var(--wordmark-ratio);
+    background-color: currentColor;
+    mask: url("/images/brand/wordmark.svg") center / contain no-repeat;
+  }
+
   /* Hero slideshow crossfade */
   .slide-fade {
     transition: opacity var(--slide-fade) ease;
