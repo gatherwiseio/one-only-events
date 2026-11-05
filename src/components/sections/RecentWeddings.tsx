@@ -16,7 +16,8 @@ export function RecentWeddings() {
       </div>
       <WeddingsMosaic photos={weddings.photos} />
       <div className="mt-group text-center md:mt-24">
-        <Button href={weddings.link.href} live={weddings.link.live} tone="current">
+        {/* No color transition: it would tween the link through grey when the section switches tone */}
+        <Button href={weddings.link.href} live={weddings.link.live} tone="current" className="transition-none!">
           {weddings.link.label}
         </Button>
       </div>

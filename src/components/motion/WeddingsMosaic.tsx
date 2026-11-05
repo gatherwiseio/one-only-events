@@ -15,8 +15,8 @@ const frameShift = { a: 15, b: 40, c: 70 } as const;
 const photoDrift = { a: 3, b: 5, c: 7 } as const;
 
 /**
- * Recent weddings mosaic: photos sit in place with gentle parallax, and the section switches
- * quickly from sand to near-black once the photos come into view (and back when scrolling up).
+ * Recent weddings mosaic: photos sit in place with gentle parallax, and the section cuts from
+ * sand to near-black as its title comes into view (and back when scrolling up).
  * Reduced motion: still photos, dark section.
  */
 export function WeddingsMosaic({ photos }: { photos: MosaicPhoto[] }) {
@@ -31,14 +31,24 @@ export function WeddingsMosaic({ photos }: { photos: MosaicPhoto[] }) {
           const { motion, desktop } = context.conditions as { motion: boolean; desktop: boolean };
           if (!motion) return;
 
+          // Sand-to-dark switch, keyed off the section title rather than the photos: the title's
+          // distance below the section top is the same fixed padding at every width, while the
+          // photos sit a variable distance further down (the intro wraps to many more lines on
+          // phones). So the cut always lands while the title is still in the bottom 15% of the
+          // screen, before anyone is reading it, on short and tall viewports alike. The colors
+          // change in one frame (see .weddings-tone in globals.css), so there is no half state.
           const section = root.current?.closest("section");
-          if (section) {
-            section.classList.add("is-light");
+          const title = section?.querySelector("h2");
+          if (section && title) {
+            const setLight = (light: boolean) => section.classList.toggle("is-light", light);
+            setLight(true);
             ScrollTrigger.create({
-              trigger: root.current,
-              start: "top 70%",
-              onEnter: () => section.classList.remove("is-light"),
-              onLeaveBack: () => section.classList.add("is-light"),
+              trigger: title,
+              start: "top 85%",
+              onEnter: () => setLight(false),
+              onLeaveBack: () => setLight(true),
+              // Loading, resizing or jumping straight to a point below the switch: match the scroll position
+              onRefresh: (self) => setLight(self.scroll() < self.start),
             });
           }
 
