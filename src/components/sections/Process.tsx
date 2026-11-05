@@ -18,8 +18,10 @@ const icons: Record<ProcessStep["icon"], typeof PartyPopper> = {
   celebrate: PartyPopper,
 };
 
-const STEP_PAUSE = 0.35; // seconds a stop stays lit before the line moves on
-const SEGMENT = 0.9; // seconds for the line to travel to the next stop
+const WORDS_PER_SECOND = 230 / 60; // a relaxed adult reading pace
+const TRAVEL = 1.2; // seconds for the line to travel to the next stop
+
+const readingTime = (step: ProcessStep) => `${step.title} ${step.body}`.split(/\s+/).length / WORDS_PER_SECOND;
 
 function celebrate() {
   const style = getComputedStyle(document.documentElement);
@@ -31,9 +33,10 @@ function celebrate() {
 }
 
 /**
- * How it works: four stops on a timeline. When the section scrolls into view the line travels
- * from step 1 to step 4, lighting each stop; confetti marks the last one, then a Replay button
- * appears. Reduced motion: every stop lit, no confetti, no replay.
+ * How it works: four stops on one rail. All steps are visible from the start, upcoming ones
+ * muted. When the timeline scrolls into view the line travels to each stop in turn, lights it,
+ * then waits about as long as it takes to read that step before moving on. Confetti marks the
+ * last stop, then a Replay link appears. Reduced motion: every stop lit, no confetti, no replay.
  */
 export function Process() {
   const root = useRef<HTMLElement>(null);
@@ -43,20 +46,34 @@ export function Process() {
 
   useGSAP(
     () => {
+      const fill = root.current?.querySelector<HTMLElement>("[data-fill]");
+      const rail = root.current?.querySelector<HTMLElement>("[data-rail]");
+      const stops = gsap.utils.toArray<HTMLElement>("[data-stop]");
+      if (!fill || !rail) return;
+
+      // How far along the rail (0–1) each stop's centre sits, in whichever direction it runs
+      const stopAt = (i: number) => {
+        const r = rail.getBoundingClientRect();
+        const s = stops[i].getBoundingClientRect();
+        const horizontal = r.width > r.height;
+        return horizontal ? (s.left + s.width / 2 - r.left) / r.width : (s.top + s.height / 2 - r.top) / r.height;
+      };
+
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: reduce)", () => {
         setLit(process.steps.length);
-        gsap.set("[data-fill]", { "--fill": 1 });
+        gsap.set(fill, { "--fill": 1 });
       });
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const fills = gsap.utils.toArray<HTMLElement>("[data-fill]");
         const tl = gsap.timeline({ paused: true });
-        process.steps.forEach((_, i) => {
+        process.steps.forEach((step, i) => {
+          tl.to(fill, { "--fill": () => stopAt(i), duration: i === 0 ? 0.6 : TRAVEL, ease: "power1.inOut" });
           tl.call(() => setLit(i + 1));
-          if (fills[i]) tl.fromTo(fills[i], { "--fill": 0 }, { "--fill": 1, duration: SEGMENT, ease: "power1.inOut" }, `+=${STEP_PAUSE}`);
+          if (i === process.steps.length - 1) tl.call(celebrate);
+          tl.to({}, { duration: readingTime(step) });
         });
-        tl.call(celebrate, [], "+=0.15");
-        tl.call(() => setDone(true), [], "+=1.6");
+        tl.to(fill, { "--fill": 1, duration: TRAVEL, ease: "power1.inOut" }, "<");
+        tl.call(() => setDone(true));
         timeline.current = tl;
         ScrollTrigger.create({ trigger: "[data-timeline]", start: "top 70%", once: true, onEnter: () => tl.play() });
       });
@@ -68,42 +85,45 @@ export function Process() {
   const replay = () => {
     setDone(false);
     setLit(0);
-    timeline.current?.restart();
+    timeline.current?.invalidate().restart();
   };
 
   return (
     <section ref={root} id="process" aria-labelledby="process-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section">
       <div className="mx-auto flex max-w-content flex-col gap-group">
         <SectionHeading id="process-title" title={process.title} label={process.label} align="start" />
-        <ol data-timeline className="grid grid-cols-1 gap-(--timeline-gap) md:grid-cols-4">
-          {process.steps.map((step, i) => {
-            const Icon = icons[step.icon];
-            const on = i < lit;
-            return (
-              <li key={step.title} className="relative flex gap-5 md:flex-col md:gap-0">
-                {i < process.steps.length - 1 ? (
-                  <span className="timeline-connector" aria-hidden="true">
-                    <span data-fill className="timeline-fill" />
+        <div data-timeline className="timeline">
+          <span data-rail className="timeline-rail" aria-hidden="true">
+            <span data-fill className="timeline-fill" />
+          </span>
+          <ol className="relative grid grid-cols-1 gap-(--timeline-gap) md:grid-cols-4">
+            {process.steps.map((step, i) => {
+              const Icon = icons[step.icon];
+              const on = i < lit;
+              return (
+                <li key={step.title} className="stop">
+                  <p className={`stop-label font-display text-label font-medium uppercase transition-colors duration-500 ease-soft ${on ? "text-accent" : "text-ink-faint"}`}>
+                    Step {i + 1}
+                  </p>
+                  <span
+                    data-stop
+                    className={`stop-icon relative flex size-(--stop-size) items-center justify-center rounded-full border-2 transition-colors duration-500 ease-soft ${
+                      on ? "border-primary bg-primary text-on-photo" : "border-line bg-surface-alt text-ink-faint"
+                    }`}
+                    aria-hidden="true"
+                  >
+                    <Icon size={22} strokeWidth={1.5} />
                   </span>
-                ) : null}
-                <span
-                  className={`relative z-10 flex size-(--stop-size) flex-none items-center justify-center rounded-full border-2 transition-colors duration-500 ease-soft ${
-                    on ? "border-primary bg-primary text-on-photo" : "border-line bg-surface-alt text-accent"
-                  }`}
-                  aria-hidden="true"
-                >
-                  <Icon size={22} strokeWidth={1.5} />
-                </span>
-                <div className="flex flex-col gap-2 md:mt-6 md:pr-4">
-                  <p className="font-display text-label font-medium uppercase text-accent">Step {i + 1}</p>
-                  <h3 className="font-display text-card-title font-normal uppercase">{step.title}</h3>
-                  <p className="text-body-sm">{step.body}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ol>
-        <div className="flex min-h-tap items-center">
+                  <h3 className={`stop-title font-display text-card-title font-normal uppercase transition-colors duration-500 ease-soft ${on ? "text-ink" : "text-ink-faint"}`}>
+                    {step.title}
+                  </h3>
+                  <p className={`stop-body text-body-sm transition-colors duration-500 ease-soft ${on ? "text-ink" : "text-ink-faint"}`}>{step.body}</p>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+        <div className="flex min-h-tap items-center justify-end">
           {done ? (
             <button
               type="button"

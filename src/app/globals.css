@@ -11,6 +11,7 @@
   --color-card: #ffffff;
   --color-ink: #373737;
   --color-ink-muted: #55524a;
+  --color-ink-faint: #6f6a5f;
   --color-accent: #6e5f36;
   --color-accent-deep: #4f4426;
   --color-accent-soft: #a8986d;
@@ -19,7 +20,6 @@
   --color-on-photo: #ffffff;
   --color-on-photo-muted: #f3efe6;
   --color-panel: #2f2c26;
-  --color-gallery: #1c1b19;
   --color-on-panel: #f3efe6;
   --color-on-panel-muted: #c9c3b5;
   --color-accent-on-dark: #cdbe94;
@@ -124,6 +124,8 @@
   --dialog-w: min(35rem, calc(100vw - 2rem));
   --stop-size: 3.5rem;
   --timeline-gap: 2.5rem;
+  --stop-label-h: 1.125rem;
+  --stop-label-gap: 0.75rem;
   --dialog-max-h: calc(100svh - 2rem);
   --wordmark-w: clamp(9.5rem, 8rem + 4vw, 12.5rem);
   --wordmark-ratio: 7960 / 890;
@@ -194,36 +196,17 @@
     mask: url("/images/brand/wordmark.svg") center / contain no-repeat;
   }
 
-  /* Recent weddings colors as variables, so the section can switch from sand to near-black as
-     its title scrolls in (WeddingsMosaic). These defaults are the dark end, which is what
-     reduced-motion visitors and no-JS see.
-     The switch is a clean cut in a single frame: background, title, label, intro and link all
-     change together, with no color transition. Any fade between sand and near-black passes
-     through mid-greys where neither text set reaches 4.5:1, so a cut is the only way text stays
-     readable at every moment. The link's own hover transition is switched off for the same
-     reason (RecentWeddings). Every pair below is at least 4.5:1. */
-  .weddings-tone {
-    --section-bg: var(--color-gallery);
-    --section-fg: var(--color-on-panel);
-    --section-label: var(--color-accent-on-dark);
-    --section-muted: var(--color-on-panel-muted);
+  /* How it works: one rail behind four stops. The rail's fill grows via --fill (0–1, set by
+     the Process component). Phones: a vertical rail down the left, text beside each icon.
+     From md: a full-width rail with "Step N" above each icon and the text below it. */
+  .timeline {
+    position: relative;
   }
-  /* Sand end. The label uses the deeper gold: the lighter label gold is only 3.3:1 on sand. */
-  .weddings-tone.is-light {
-    --section-bg: var(--color-surface-alt);
-    --section-fg: var(--color-ink);
-    --section-label: var(--color-accent);
-    --section-muted: var(--color-ink-muted);
-  }
-
-  /* How it works: a timeline of stops. Each stop draws a connector to the next one; the
-     connector's fill grows from 0 to 1 via --fill (set by ProcessTimeline). Vertical on phones,
-     horizontal from md up. */
-  .timeline-connector {
+  .timeline-rail {
     position: absolute;
     left: calc(var(--stop-size) / 2 - 1px);
-    top: var(--stop-size);
-    bottom: calc(var(--timeline-gap) * -1);
+    top: calc(var(--stop-size) / 2);
+    bottom: 0;
     width: 2px;
     background: var(--color-line);
   }
@@ -234,11 +217,24 @@
     transform-origin: top;
     transform: scaleY(var(--fill, 0));
   }
+  .stop {
+    display: grid;
+    grid-template-columns: var(--stop-size) minmax(0, 1fr);
+    grid-template-areas: "icon label" "icon title" "icon body";
+    grid-template-rows: auto auto 1fr;
+    align-content: start;
+    column-gap: 1.25rem;
+    row-gap: 0.5rem;
+  }
+  .stop-label { grid-area: label; }
+  .stop-icon { grid-area: icon; align-self: start; }
+  .stop-title { grid-area: title; }
+  .stop-body { grid-area: body; }
   @media (width >= 48rem) {
-    .timeline-connector {
-      left: var(--stop-size);
-      right: calc(var(--timeline-gap) * -1);
-      top: calc(var(--stop-size) / 2 - 1px);
+    .timeline-rail {
+      left: 0;
+      right: 0;
+      top: calc(var(--stop-label-h) + var(--stop-label-gap) + var(--stop-size) / 2 - 1px);
       bottom: auto;
       width: auto;
       height: 2px;
@@ -247,6 +243,14 @@
       transform-origin: left;
       transform: scaleX(var(--fill, 0));
     }
+    .stop {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: "label" "icon" "title" "body";
+      grid-template-rows: auto;
+      row-gap: 0;
+    }
+    .stop-label { line-height: var(--stop-label-h); margin-bottom: var(--stop-label-gap); }
+    .stop-title { margin-top: 1.5rem; margin-bottom: 0.5rem; }
   }
 
   /* Hero photos whose subject sits high in a tall frame (keeps faces in a wide crop) */
