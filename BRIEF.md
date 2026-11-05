@@ -220,3 +220,5 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
     - Share description: "Hawaiʻi weddings planned with heart, so you can simply be present on your day." (78).
   - **Status:** approved 2026-11-05. Option C (badge on logo green) is exported with headless Chrome to `src/app/opengraph-image.png` (1200×630), with alt text in `opengraph-image.alt.txt`.
   - **Wired in:** the text is in `seo` (site.ts), the share and Twitter settings and `metadataBase` are in `layout.tsx`, and the coming-soon page has its own canonical and stays noindex. Checked in the production HTML: `og:image` and `twitter:image` point at `https://one-only-events.vercel.app/opengraph-image.png`.
+- **Homepage live, 2026-11-05:** after a final check at 320/375/768/1024/1440 (both pages, the phone menu and the package pop-up), main was pushed and deployed to https://one-only-events.vercel.app (Vercel production, Ready).
+  - **Leftovers not yet removed** (they need the user's OK): the unused photos `sunny-at-work.jpg`, `bubble-send-off.jpg` and `lei-ceremony.jpg`; the `experiment/scroll-motion` branch; and the Claude Design canvases from decided rounds.
