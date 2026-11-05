@@ -218,4 +218,5 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
     - Description: "Hawaiʻi wedding planning and design by Sunny Cho. Full planning, partial planning and day-of coordination for couples on the islands and from afar." (147).
     - Share title: "Your day, your story, your way | One & Only Events" (50).
     - Share description: "Hawaiʻi weddings planned with heart, so you can simply be present on your day." (78).
-  - **Status:** awaiting a pick and edits.
+  - **Status:** approved 2026-11-05. Option C (badge on logo green) is exported with headless Chrome to `src/app/opengraph-image.png` (1200×630), with alt text in `opengraph-image.alt.txt`.
+  - **Wired in:** the text is in `seo` (site.ts), the share and Twitter settings and `metadataBase` are in `layout.tsx`, and the coming-soon page has its own canonical and stays noindex. Checked in the production HTML: `og:image` and `twitter:image` point at `https://one-only-events.vercel.app/opengraph-image.png`.

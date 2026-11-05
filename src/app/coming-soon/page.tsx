@@ -7,6 +7,7 @@ import { business, comingSoon } from "@/content/site";
 export const metadata: Metadata = {
   title: `Coming soon | ${business.name}`,
   robots: { index: false, follow: false },
+  alternates: { canonical: "/coming-soon" },
 };
 
 export default function ComingSoon() {

@@ -332,8 +332,12 @@ export const comingSoon = {
   },
 };
 
+// Approved 2026-11-05 (step 7). The share image is src/app/opengraph-image.png (option C).
 export const seo = {
+  siteUrl: "https://one-only-events.vercel.app",
   title: "One & Only Events | Hawaiʻi Wedding Planner",
   description:
-    "One & Only Events plans and designs unforgettable Hawaiʻi weddings, each one as one-of-a-kind as the couple behind it. Full planning, partial planning and day-of coordination.",
+    "Hawaiʻi wedding planning and design by Sunny Cho. Full planning, partial planning and day-of coordination for couples on the islands and from afar.",
+  shareTitle: "Your day, your story, your way | One & Only Events",
+  shareDescription: "Hawaiʻi weddings planned with heart, so you can simply be present on your day.",
 };

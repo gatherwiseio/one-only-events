@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Lora, Montserrat } from "next/font/google";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
-import { seo } from "@/content/site";
+import { business, seo } from "@/content/site";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
@@ -19,8 +19,23 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(seo.siteUrl),
   title: seo.title,
   description: seo.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: seo.shareTitle,
+    description: seo.shareDescription,
+    siteName: business.name,
+    type: "website",
+    locale: "en_US",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.shareTitle,
+    description: seo.shareDescription,
+  },
 };
 
 export const viewport: Viewport = {
