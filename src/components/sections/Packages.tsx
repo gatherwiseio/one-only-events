@@ -44,7 +44,7 @@ export function Packages() {
             <h3 id={`${pkg.id}-name`} className="px-6 pt-6 font-display text-card-title font-medium uppercase sm:px-7">
               {pkg.name}
             </h3>
-            <p className="px-6 pt-1 font-display text-price font-medium text-accent sm:px-7">{pkg.price}</p>
+            <p className="px-6 pt-1 font-display text-body font-medium text-accent sm:px-7">{pkg.price}</p>
             <p className="px-6 pt-4 text-body-sm text-ink-muted sm:px-7">{pkg.description}</p>
             <div className="px-6 pt-6 sm:px-7">
               <Button href={`${servicesPage.href}#${pkg.id}`} live={servicesPage.live} variant="secondary" tone="pink" className="w-full">

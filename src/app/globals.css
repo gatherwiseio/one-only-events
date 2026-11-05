@@ -150,8 +150,8 @@
     180deg,
     rgb(30 27 22 / 0.25) 0%,
     rgb(30 27 22 / 0) 20%,
-    rgb(30 27 22 / 0) 55%,
-    rgb(30 27 22 / 0.45) 100%
+    rgb(30 27 22 / 0) 45%,
+    rgb(30 27 22 / 0.62) 100%
   );
   --scrim-cta: linear-gradient(180deg, rgb(30 27 22 / 0.55), rgb(30 27 22 / 0.65));
   /* Darkens only the left side, behind left-aligned text on a full-width photo. */

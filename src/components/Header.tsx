@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { MobileMenu } from "@/components/MobileMenu";
 import { NavLink } from "@/components/NavLink";
-import { pages } from "@/content/site";
+import { contactPage, pages } from "@/content/site";
 
 /**
  * Site header. With `overlayId`, it sits clear and white over that element (the hero) and
@@ -36,7 +36,18 @@ export function Header({ overlayId }: { overlayId?: string }) {
           <ul className="flex gap-8 font-display text-label font-medium uppercase">
             {pages.map((page) => (
               <li key={page.href}>
-                <NavLink page={page} className="inline-flex min-h-tap items-center" />
+                <NavLink
+                  page={page}
+                  className={
+                    page.href !== contactPage.href
+                      ? "inline-flex min-h-tap items-center"
+                      : `inline-flex min-h-tap items-center border px-4 transition-colors duration-300 ease-soft ${
+                          pinned
+                            ? "border-primary text-primary hover:bg-primary hover:text-on-photo"
+                            : "border-on-photo text-on-photo hover:bg-on-photo hover:text-ink"
+                        }`
+                  }
+                />
               </li>
             ))}
           </ul>
