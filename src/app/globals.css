@@ -292,7 +292,8 @@
     top: calc(var(--stop-size) / 2);
     bottom: 0;
     width: var(--stop-size);
-    background: var(--color-surface-alt);
+    /* Must match the How it works section's background, or it shows as a block */
+    background: var(--color-surface);
   }
   .stop-label { grid-area: label; }
   .stop-icon { grid-area: icon; align-self: start; }
