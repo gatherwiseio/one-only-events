@@ -11,7 +11,7 @@ type Props = {
 /** Every section's title: a large, light, tracked uppercase title with one label line under it. */
 export function SectionHeading({ id, title, label, align = "center", tone = "light", labelColor = "accent", as: Tag = "h2" }: Props) {
   const alignment = align === "center" ? "items-center text-center" : "items-start text-left";
-  const labelClass = tone === "dark" ? "text-on-photo" : labelColor === "pink" ? "text-pink" : "text-accent";
+  const labelClass = tone === "dark" ? "text-on-photo" : labelColor === "pink" ? "text-pink" : "text-accent-label";
   return (
     <div className={`flex flex-col gap-4 ${alignment}`}>
       <Tag id={id} className={`font-display text-title font-light uppercase ${tone === "dark" ? "text-on-photo" : "text-ink"}`}>

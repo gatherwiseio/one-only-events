@@ -11,7 +11,7 @@ export function Process() {
           <ol className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
             {process.steps.map((step, i) => (
               <li key={step.title} className="flex flex-col gap-2">
-                <p className="font-display text-label font-medium uppercase text-accent" aria-hidden="true">
+                <p className="font-display text-label font-medium uppercase text-accent-label" aria-hidden="true">
                   Step {i + 1}
                 </p>
                 <h3 className="font-display text-card-title font-normal uppercase">{step.title}</h3>

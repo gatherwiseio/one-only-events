@@ -30,7 +30,7 @@ export const servicesPage: PageLink = pages[1];
 export const portfolioPage: PageLink = pages[2];
 export const aboutPage: PageLink = pages[0];
 
-export type Slide = { src: string; alt: string };
+export type Slide = { src: string; alt: string; focus?: "upper" };
 
 export const hero = {
   label: "Hawaiʻi wedding planning & design",
@@ -54,8 +54,9 @@ export const hero = {
       alt: "A couple standing together in a garden lined with palm trees",
     },
     {
-      src: "/images/hero/palm-grove-reception-tent.jpg",
-      alt: "A white reception tent glowing among tall palm trees at dusk, with guests arriving",
+      src: "/images/hero/mokolii-ceremony-florals.jpg",
+      alt: "A bride and groom touch foreheads during their ceremony, framed by tropical florals with Mokoliʻi behind them",
+      focus: "upper",
     },
   ] satisfies Slide[],
 };
@@ -75,7 +76,7 @@ export const about = {
     {
       src: "/images/sunny/sunny-light-painting-close.jpg",
       alt: "Sunny laughing as she snaps a photo on her phone beneath ribbons of light at a nighttime celebration",
-      speed: "c",
+      speed: "a",
     },
     {
       src: "/images/sunny/sunny-styling-table.jpg",

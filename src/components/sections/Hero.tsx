@@ -37,7 +37,7 @@ export function Hero() {
             fill
             sizes="100vw"
             preload={i === 0}
-            className={`object-cover ${i === index ? "animate-hero-zoom" : ""}`}
+            className={`object-cover ${slide.focus === "upper" ? "focus-upper" : ""} ${i === index ? "animate-hero-zoom" : ""}`}
           />
         </div>
       ))}

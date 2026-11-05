@@ -8,7 +8,7 @@ const speedClass = { a: "parallax-a", b: "parallax-b", c: "parallax-c" } as cons
 export function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="scroll-mt-20 overflow-hidden px-gutter py-section">
-      <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-16 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:items-start">
         <div className="about-mosaic mx-auto w-full max-w-lg lg:col-span-6 lg:max-w-none">
           {about.photos.map((photo, i) => (
             <div key={photo.src} className={`${speedClass[photo.speed]} ${i > 0 ? "ring-8 ring-surface" : ""}`}>

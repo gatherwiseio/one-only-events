@@ -13,6 +13,7 @@
   --color-accent: #6e5f36;
   --color-accent-deep: #4f4426;
   --color-accent-soft: #a8986d;
+  --color-accent-label: #9a844c;
   --color-line: #e4dfd0;
   --color-on-photo: #ffffff;
   --color-on-photo-muted: #f3efe6;
@@ -178,6 +179,11 @@
     aspect-ratio: var(--wordmark-ratio);
     background-color: currentColor;
     mask: url("/images/brand/wordmark.svg") center / contain no-repeat;
+  }
+
+  /* Hero photos whose subject sits high in a tall frame (keeps faces in a wide crop) */
+  .focus-upper {
+    object-position: 50% 30%;
   }
 
   /* Hero slideshow crossfade */
