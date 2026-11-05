@@ -96,6 +96,13 @@ export const about = {
 
 export type MosaicPhoto = { src: string; alt: string; ratio: string; speed: "a" | "b" | "c" };
 
+// Sunny's own words, verbatim from her current About page
+export const pullQuote = {
+  quote: "It’s not just about looking beautiful — it’s about creating moments that stay with you forever!",
+  name: "Sunny Cho",
+  role: "Founder",
+};
+
 export const weddings = {
   title: "Recent weddings",
   label: "Resorts · Private estates · Gardens · Oceanfront",

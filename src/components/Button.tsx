@@ -6,7 +6,7 @@ type Tone = "light" | "dark" | "pink" | "current";
 
 const base = "font-display uppercase text-label transition-colors duration-300 ease-soft";
 
-const primary = "inline-flex items-center justify-center min-h-button px-8 bg-primary font-medium text-on-photo hover:bg-primary-hover";
+const primary = "fill-sweep [--sweep-fill:var(--color-primary-hover)] inline-flex items-center justify-center min-h-button px-8 bg-primary font-medium text-on-photo";
 const secondary = "inline-flex items-center justify-center min-h-tap px-5 border border-accent font-medium text-accent hover:bg-accent hover:text-on-photo";
 
 const styles: Record<Variant, Record<Tone, string>> = {
@@ -19,7 +19,7 @@ const styles: Record<Variant, Record<Tone, string>> = {
   secondary: {
     light: secondary,
     dark: "inline-flex items-center justify-center min-h-tap px-5 border border-on-photo font-medium text-on-photo hover:bg-on-photo hover:text-ink",
-    pink: "inline-flex items-center justify-center min-h-button px-6 border border-primary font-medium text-primary hover:bg-primary hover:text-on-photo",
+    pink: "fill-sweep [--sweep-fill:var(--color-primary)] inline-flex items-center justify-center min-h-button px-6 border border-primary font-medium text-primary hover:text-on-photo",
     current: secondary,
   },
   link: {

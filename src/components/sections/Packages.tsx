@@ -36,7 +36,7 @@ export function Packages() {
             key={pkg.id}
             id={pkg.id}
             aria-labelledby={`${pkg.id}-name`}
-            className="row-span-6 grid grid-rows-subgrid gap-y-0 border border-line bg-card"
+            className="card-line row-span-6 grid grid-rows-subgrid gap-y-0 border border-line bg-card"
           >
             <div className="relative aspect-4/3 overflow-hidden">
               <Image src={pkg.image.src} alt={pkg.image.alt} fill sizes="(width >= 64rem) 30vw, (width >= 48rem) 45vw, 100vw" className="object-cover" />
