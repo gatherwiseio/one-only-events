@@ -208,6 +208,4 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
     - V5: larger section titles, a gold line across package cards on hover, a fill sweep on buttons.
   - **Kept by request:** the hero slideshow has no pause control.
   - **Also fixed:** the weddings label keeps each "·" with the word before it, so no line starts with a dot.
-- **Favicon, 2026-11-05:** her Instagram profile picture is the same circular logo as `public/images/brand/logo-original.png` (1080px), so I worked from that file. The favicon is a vector redraw of the logo's most recognizable part: three pink arches (`#fd49a0`, sampled from the logo) inside the green ring (`#265c00`) on cream. The lettering and rays are left out because they turn to mush at tab size.
-  - **Files:** `src/app/icon.svg` (the favicon), `src/app/apple-icon.png` (180px iPhone home-screen icon, arches on cream with no ring), and copies in `public/images/brand/`.
-  - **Removed:** the create-next-app `favicon.ico`.
+- **Favicon, 2026-11-05 (as provided):** Stephanie supplied the full circular badge (`public/images/brand/logo-badge.png`, 1254px, transparent inside the ring). The favicon is that badge with the inside of the ring filled white and the outside left transparent: `src/app/icon.png` (512px). The iPhone home-screen icon `src/app/apple-icon.png` (180px) is the same badge on a white square. This replaced an earlier simplified arches-only favicon.
