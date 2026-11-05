@@ -68,6 +68,7 @@
 
   /* Spacing */
   --spacing-section: clamp(5.5rem, 4rem + 5vw, 9.5rem);
+  --spacing-section-sm: clamp(4rem, 3rem + 3vw, 6rem);
   --spacing-gutter: clamp(1.25rem, 5vw, 4rem);
   --spacing-stack: 1rem;
   --spacing-group: 4rem;
@@ -196,9 +197,12 @@
     mask: url("/images/brand/wordmark.svg") center / contain no-repeat;
   }
 
-  /* How it works: one rail behind four stops. The rail's fill grows via --fill (0–1, set by
-     the Process component). Phones: a vertical rail down the left, text beside each icon.
-     From md: a full-width rail with "Step N" above each icon and the text below it. */
+  /* How it works: one rail joining four stops, from the first circle's center to the last's.
+     Its fill grows via --fill (0–1, set by the Process component).
+     Below lg: a vertical rail down the left, text beside each icon; the component sets
+     --rail-tail so the rail stops at the last circle. From lg: four centered columns, with
+     "Step N" above each icon and the text below, and a horizontal rail between the first and
+     last circle centers. */
   .timeline {
     position: relative;
   }
@@ -206,7 +210,7 @@
     position: absolute;
     left: calc(var(--stop-size) / 2 - 1px);
     top: calc(var(--stop-size) / 2);
-    bottom: 0;
+    bottom: var(--rail-tail, 0px);
     width: 2px;
     background: var(--color-line);
   }
@@ -230,10 +234,11 @@
   .stop-icon { grid-area: icon; align-self: start; }
   .stop-title { grid-area: title; }
   .stop-body { grid-area: body; }
-  @media (width >= 48rem) {
+  @media (width >= 64rem) {
     .timeline-rail {
-      left: 0;
-      right: 0;
+      /* each column is (100% - 3 gaps) / 4 wide, so its center sits half a column in */
+      left: calc((100% - 3 * var(--timeline-gap)) / 8);
+      right: calc((100% - 3 * var(--timeline-gap)) / 8);
       top: calc(var(--stop-label-h) + var(--stop-label-gap) + var(--stop-size) / 2 - 1px);
       bottom: auto;
       width: auto;
@@ -247,7 +252,9 @@
       grid-template-columns: minmax(0, 1fr);
       grid-template-areas: "label" "icon" "title" "body";
       grid-template-rows: auto;
+      justify-items: center;
       row-gap: 0;
+      text-align: center;
     }
     .stop-label { line-height: var(--stop-label-h); margin-bottom: var(--stop-label-gap); }
     .stop-title { margin-top: 1.5rem; margin-bottom: 0.5rem; }

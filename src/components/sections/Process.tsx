@@ -18,8 +18,8 @@ const icons: Record<ProcessStep["icon"], typeof PartyPopper> = {
   celebrate: PartyPopper,
 };
 
-const WORDS_PER_SECOND = 230 / 60; // a relaxed adult reading pace
-const TRAVEL = 1.2; // seconds for the line to travel to the next stop
+const WORDS_PER_SECOND = 270 / 60; // an easy adult reading pace
+const TRAVEL = 1; // seconds for the line to travel to the next stop
 
 const readingTime = (step: ProcessStep) => `${step.title} ${step.body}`.split(/\s+/).length / WORDS_PER_SECOND;
 
@@ -51,6 +51,17 @@ export function Process() {
       const stops = gsap.utils.toArray<HTMLElement>("[data-stop]");
       if (!fill || !rail) return;
 
+      // On the vertical rail, stop at the last circle's center rather than the bottom of the list
+      const timelineEl = rail.parentElement!;
+      const setTail = () => {
+        const t = timelineEl.getBoundingClientRect();
+        const last = stops[stops.length - 1].getBoundingClientRect();
+        timelineEl.style.setProperty("--rail-tail", `${t.bottom - (last.top + last.height / 2)}px`);
+      };
+      setTail();
+      const observer = new ResizeObserver(setTail);
+      observer.observe(timelineEl);
+
       // How far along the rail (0–1) each stop's center sits, in whichever direction it runs
       const stopAt = (i: number) => {
         const r = rail.getBoundingClientRect();
@@ -77,7 +88,10 @@ export function Process() {
         timeline.current = tl;
         ScrollTrigger.create({ trigger: "[data-timeline]", start: "top 70%", once: true, onEnter: () => tl.play() });
       });
-      return () => mm.revert();
+      return () => {
+        observer.disconnect();
+        mm.revert();
+      };
     },
     { scope: root },
   );
@@ -89,14 +103,14 @@ export function Process() {
   };
 
   return (
-    <section ref={root} id="process" aria-labelledby="process-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section">
+    <section ref={root} id="process" aria-labelledby="process-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section-sm">
       <div className="mx-auto flex max-w-content flex-col gap-group">
         <SectionHeading id="process-title" title={process.title} label={process.label} align="start" />
         <div data-timeline className="timeline">
           <span data-rail className="timeline-rail" aria-hidden="true">
             <span data-fill className="timeline-fill" />
           </span>
-          <ol className="relative grid grid-cols-1 gap-(--timeline-gap) md:grid-cols-4">
+          <ol className="relative grid grid-cols-1 gap-(--timeline-gap) lg:grid-cols-4">
             {process.steps.map((step, i) => {
               const Icon = icons[step.icon];
               const on = i < lit;
