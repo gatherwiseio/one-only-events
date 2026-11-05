@@ -95,7 +95,7 @@ export const about = {
   link: { ...aboutPage, label: "More about Sunny" },
 };
 
-export type MosaicPhoto = { src: string; alt: string; ratio: string };
+export type MosaicPhoto = { src: string; alt: string; ratio: string; speed: "a" | "b" | "c" };
 
 export const weddings = {
   title: "Recent weddings",
@@ -104,13 +104,13 @@ export const weddings = {
     "Every celebration begins with a different story. Our role is to bring that vision to life while making sure the experience remains organized, cohesive, and enjoyable.",
   link: { ...portfolioPage, label: "View the portfolio" },
   photos: [
-    { src: "/images/weddings/oceanfront-ceremony-chairs.jpg", alt: "An oceanfront ceremony set with gold chairs under the palms", ratio: "aspect-16/10" },
-    { src: "/images/weddings/couple-florals-kiss.jpg", alt: "A groom kisses his bride, who holds a bright bouquet", ratio: "aspect-4/5" },
-    { src: "/images/weddings/couple-palms-lawn.jpg", alt: "A couple on a palm-lined lawn by the sea", ratio: "aspect-4/5" },
-    { src: "/images/weddings/painted-floral-cake.jpg", alt: "A white wedding cake painted with colorful flowers", ratio: "aspect-4/5" },
-    { src: "/images/weddings/archway-ceremony.jpg", alt: "A couple marrying beneath an archway framed with florals", ratio: "aspect-4/5" },
-    { src: "/images/weddings/black-white-carry.jpg", alt: "Black-and-white photo of a groom carrying his laughing bride", ratio: "aspect-4/3" },
-    { src: "/images/weddings/palm-grove-procession.jpg", alt: "Guests in colorful outfits gathering in a palm grove", ratio: "aspect-21/9" },
+    { src: "/images/weddings/oceanfront-ceremony-chairs.jpg", alt: "An oceanfront ceremony set with gold chairs under the palms", ratio: "aspect-16/10", speed: "a" },
+    { src: "/images/weddings/couple-florals-kiss.jpg", alt: "A groom kisses his bride, who holds a bright bouquet", ratio: "aspect-4/5", speed: "c" },
+    { src: "/images/weddings/couple-palms-lawn.jpg", alt: "A couple on a palm-lined lawn by the sea", ratio: "aspect-3/4", speed: "b" },
+    { src: "/images/weddings/painted-floral-cake.jpg", alt: "A white wedding cake painted with colorful flowers", ratio: "aspect-square", speed: "a" },
+    { src: "/images/weddings/archway-ceremony.jpg", alt: "A couple marrying beneath an archway framed with florals", ratio: "aspect-3/4", speed: "c" },
+    { src: "/images/weddings/black-white-carry.jpg", alt: "Black-and-white photo of a groom carrying his laughing bride", ratio: "aspect-4/3", speed: "b" },
+    { src: "/images/weddings/palm-grove-procession.jpg", alt: "Guests in colorful outfits gathering in a palm grove", ratio: "aspect-21/9", speed: "a" },
   ] satisfies MosaicPhoto[],
 };
 
