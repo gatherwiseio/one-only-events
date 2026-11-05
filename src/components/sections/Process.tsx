@@ -91,7 +91,7 @@ export function Process() {
   };
 
   return (
-    <section ref={root} id="process" aria-labelledby="process-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section-sm">
+    <section ref={root} id="process" aria-labelledby="process-title" className="scroll-mt-20 bg-surface px-gutter py-section-sm">
       <div className="mx-auto flex max-w-content flex-col gap-group">
         <SectionHeading id="process-title" title={process.title} label={process.label} />
         <div data-timeline className="timeline">

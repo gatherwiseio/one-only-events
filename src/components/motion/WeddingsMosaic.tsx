@@ -53,7 +53,7 @@ export function WeddingsMosaic({ photos }: { photos: MosaicPhoto[] }) {
   );
 
   return (
-    <div ref={root} className="mosaic mx-auto mt-group max-w-wide">
+    <div ref={root} className="mosaic mx-auto mt-group max-w-content">
       {photos.map((photo, i) => (
         <div key={photo.src} data-tile data-speed={photo.speed} className={`relative overflow-hidden ${photo.ratio}`}>
           <Image

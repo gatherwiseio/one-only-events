@@ -8,7 +8,7 @@ import { faq } from "@/content/site";
  */
 export function Faq() {
   return (
-    <section id="faq" aria-labelledby="faq-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section-sm">
+    <section id="faq" aria-labelledby="faq-title" className="scroll-mt-20 bg-surface px-gutter py-section-sm">
       <div className="mx-auto grid max-w-content grid-cols-1 gap-10 lg:grid-cols-[2fr_3fr] lg:gap-16">
         <SectionHeading id="faq-title" title={faq.title} label={faq.label} align="start" />
         <div className="border-t border-line">

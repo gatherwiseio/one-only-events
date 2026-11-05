@@ -30,7 +30,7 @@ export function Header({ overlayId }: { overlayId?: string }) {
           : "absolute text-on-photo"
       }`}
     >
-      <div className="flex items-center justify-between gap-6">
+      <div className="mx-auto flex max-w-content items-center justify-between gap-6">
         <Logo tone={pinned ? "ink" : "dark"} />
         <nav aria-label="Main" className="hidden md:block">
           <ul className="flex gap-8 font-display text-label font-medium uppercase">

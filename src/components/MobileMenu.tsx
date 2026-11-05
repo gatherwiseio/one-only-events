@@ -58,7 +58,7 @@ export function MobileMenu({ tone }: { tone: "light" | "dark" }) {
               className="fixed inset-0 z-50 flex flex-col overflow-y-auto overscroll-contain bg-surface px-gutter pb-10"
             >
               {/* Same padding and sizes as the page header, so the logo and button don't move */}
-              <div className="flex items-center justify-between gap-6 py-2">
+              <div className="mx-auto flex w-full max-w-content items-center justify-between gap-6 py-2">
                 <Logo tone="ink" />
                 <button ref={closeRef} type="button" onClick={() => setOpen(false)} className={`${iconButton} text-ink`}>
                   <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">

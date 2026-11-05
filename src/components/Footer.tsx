@@ -1,10 +1,10 @@
 import { business } from "@/content/site";
 
-/** One thin white stripe, as wide as the header: copyright on the left, Instagram on the right. */
+/** One thin white stripe, as wide as the header and the sections' content: copyright on the left, Instagram on the right. */
 export function Footer() {
   return (
     <footer className="bg-card px-gutter py-3">
-      <div className="flex items-center justify-between gap-6">
+      <div className="mx-auto flex max-w-content items-center justify-between gap-6">
         <p className="font-display text-label font-medium uppercase text-ink-muted">
           © {business.copyrightYear} {business.name}
         </p>

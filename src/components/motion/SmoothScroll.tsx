@@ -13,6 +13,21 @@ export function lockScroll(locked: boolean) {
   window.dispatchEvent(new CustomEvent("scroll-lock", { detail: locked }));
 }
 
+/** Space left above an element scrolled to from code, so the pinned header doesn't cover it. */
+const HEADER_OFFSET = 96;
+
+/**
+ * Bring an element's top into view below the pinned header: smoothly through Lenis when it's
+ * running, otherwise with the browser's own scroll (instant for reduced motion).
+ */
+export function scrollToElement(element: HTMLElement) {
+  const handled = !window.dispatchEvent(new CustomEvent("scroll-to", { detail: element, cancelable: true }));
+  if (handled) return;
+  const top = element.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+  const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top, behavior: smooth ? "smooth" : "auto" });
+}
+
 /**
  * Site-wide smooth scrolling (Lenis), driven by GSAP's ticker so scroll-linked animations
  * stay in sync. Skipped entirely for visitors who prefer reduced motion.
@@ -29,9 +44,15 @@ export function SmoothScroll() {
 
     const onLock = (event: Event) => ((event as CustomEvent<boolean>).detail ? lenis.stop() : lenis.start());
     window.addEventListener("scroll-lock", onLock);
+    const onScrollTo = (event: Event) => {
+      event.preventDefault();
+      lenis.scrollTo((event as CustomEvent<HTMLElement>).detail, { offset: -HEADER_OFFSET });
+    };
+    window.addEventListener("scroll-to", onScrollTo);
 
     return () => {
       window.removeEventListener("scroll-lock", onLock);
+      window.removeEventListener("scroll-to", onScrollTo);
       gsap.ticker.remove(tick);
       lenis.destroy();
     };

@@ -3,41 +3,65 @@
 import { Star } from "@phosphor-icons/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState } from "react";
+import { scrollToElement } from "@/components/motion/SmoothScroll";
 import { SectionHeading } from "@/components/SectionHeading";
 import { reviews } from "@/content/site";
 
-const SWIPE_PX = 50;
+/** How far (px) a drag or swipe has to travel before it changes the review. */
+const SWIPE_PX = 60;
 
 /**
  * Kind words: one full review at a time on a white card. Five filled stars and the previous/next
- * controls sit at the top, so the arrows stay put while reviews of different lengths change the
- * card's height below them. Swipe also works on touch screens.
+ * arrows sit at the top, so the arrows stay put while reviews of different lengths change the
+ * card's height; dots under the card jump to any review and scroll back up to its start. The card can be dragged with a mouse or
+ * swiped on touch screens, and follows the pointer a little while it moves.
  */
 export function Reviews() {
   const items = reviews.items;
   const count = items.length;
   const [index, setIndex] = useState(0);
-  const touchX = useRef<number | null>(null);
+  const [dragX, setDragX] = useState(0);
+  const start = useRef<number | null>(null);
+  const card = useRef<HTMLDivElement>(null);
   const review = items[index];
 
   const go = (step: number) => setIndex((i) => (i + step + count) % count);
+
+  /** Dots sit below long reviews, so picking one also scrolls back up to the start of the card. */
+  const show = (i: number) => {
+    setIndex(i);
+    if (card.current) scrollToElement(card.current);
+  };
+
+  const endDrag = (x: number) => {
+    if (start.current === null) return;
+    const dx = x - start.current;
+    start.current = null;
+    setDragX(0);
+    if (Math.abs(dx) > SWIPE_PX) go(dx < 0 ? 1 : -1);
+  };
 
   return (
     <section id="reviews" aria-labelledby="reviews-title" className="scroll-mt-20 bg-surface px-gutter py-section">
       <SectionHeading id="reviews-title" title={reviews.title} label={reviews.label} />
       <div
-        className="mx-auto mt-group max-w-review border border-line bg-card px-6 py-8 sm:px-12 sm:py-12"
+        ref={card}
+        className="mx-auto mt-group max-w-review cursor-grab touch-pan-y border border-line bg-card px-6 py-8 select-none active:cursor-grabbing sm:px-12 sm:py-12"
         role="group"
         aria-roledescription="carousel"
         aria-label={reviews.title}
-        onTouchStart={(event) => {
-          touchX.current = event.touches[0].clientX;
+        onPointerDown={(event) => {
+          if ((event.target as HTMLElement).closest("button")) return;
+          start.current = event.clientX;
+          event.currentTarget.setPointerCapture(event.pointerId);
         }}
-        onTouchEnd={(event) => {
-          if (touchX.current === null) return;
-          const dx = event.changedTouches[0].clientX - touchX.current;
-          touchX.current = null;
-          if (Math.abs(dx) > SWIPE_PX) go(dx < 0 ? 1 : -1);
+        onPointerMove={(event) => {
+          if (start.current !== null) setDragX(event.clientX - start.current);
+        }}
+        onPointerUp={(event) => endDrag(event.clientX)}
+        onPointerCancel={() => {
+          start.current = null;
+          setDragX(0);
         }}
       >
         <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
@@ -68,15 +92,36 @@ export function Reviews() {
             </button>
           </div>
         </div>
-        <figure key={index} aria-live="polite" className="mt-8 flex animate-fade-in flex-col gap-8">
+        <figure
+          key={index}
+          aria-live="polite"
+          className="mt-8 flex animate-fade-in flex-col gap-8"
+          style={{ transform: dragX ? `translateX(${dragX * 0.25}px)` : undefined }}
+        >
           <blockquote className="text-quote">“{review.quote}”</blockquote>
-          <figcaption className="flex flex-col gap-1 border-t border-line pt-5">
-            <span className="font-display text-card-title font-medium uppercase">{review.name}</span>
-            <span className="font-display text-label font-medium uppercase text-accent">
-              {review.source} · {review.date}
-            </span>
+          <figcaption className="border-t border-line pt-5 font-display text-card-title font-medium uppercase">
+            {review.name}
+            <span className="ml-3 text-label text-accent">{review.date}</span>
           </figcaption>
         </figure>
+      </div>
+      <div className="mt-3 flex justify-center">
+        {items.map((item, i) => (
+          <button
+            key={item.name}
+            type="button"
+            onClick={() => show(i)}
+            aria-label={`${reviews.dotLabel} ${i + 1}: ${item.name}`}
+            aria-current={i === index ? "true" : undefined}
+            className="group inline-flex size-6 items-center justify-center"
+          >
+            <span
+              className={`size-2 rounded-full transition-colors duration-300 ease-soft ${
+                i === index ? "bg-primary" : "bg-accent-label group-hover:bg-accent"
+              }`}
+            />
+          </button>
+        ))}
       </div>
     </section>
   );

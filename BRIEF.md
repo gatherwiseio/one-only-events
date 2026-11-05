@@ -180,3 +180,13 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
   - **Card:** one full review at a time on a white card, max width 52rem, centered in the section, text left-aligned. Every 2026 five-star review in `content/reviews.md` appears in full with no cuts, seven in all, newest first.
   - **Top row:** five filled Phosphor stars (`@phosphor-icons/react`, MIT) in gold, with a "01 / 07" counter and pink outline previous/next arrows. They sit at the top so the arrows don't move as the card height changes; on narrow phones they wrap under the stars. Swipe works on touch screens, and each new review fades in (no fade with reduced motion).
   - **Label:** "From couples who planned with us".
+- **Layout pass, 2026-11-05 (later):**
+  - **Less blocky:** every section now sits on the same cream except Recent weddings, which stays the one beige band (as asked earlier). How it works and FAQs moved off beige.
+  - **One content width:** the header, footer, hero text, weddings mosaic and sections all share the 75rem content column (header and footer narrowed to match).
+  - **CTA:** the arch photo is full width, with the text on it at the left of the content column. From 768px a light left-side gradient (`--scrim-side`) sits behind the text only; on phones the photo is evenly dimmed. There's no box.
+  - **Kind words:**
+    - The source (The Knot) is no longer shown, just the name and month.
+    - Light typo and punctuation fixes, keeping each reviewer's voice.
+    - New order: Samantha, Talia, Kelly, Monique, Natasha, Elysha, Caroline.
+    - The card can be dragged with a mouse or swiped.
+    - Compact nav dots sit below the card (24px apart). Choosing one smoothly scrolls the card's top to just under the header (`scrollToElement` in SmoothScroll), at every width.
