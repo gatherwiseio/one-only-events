@@ -199,3 +199,12 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
   - **CTA label:** "Weddings throughout the islands" is light gold again.
   - **CTA gradient:** the side gradient is a little darker behind the text (62% → 42% → clear by 62%). Measured contrast: title and body about 8.7:1, gold label 4.7:1.
   - **CTA photo:** it runs 12% wider than the section from the left edge, so the arch and Mokoliʻi sit about 55% across, centered in the open part of the photo.
+- **Audit versions (step 6), 2026-11-05:**
+  - **Chose V5** (all of V1–V5) without its pull quote:
+    - V1: label gold `#7e6c3e` passes 4.5:1, the hero loads its first photo alone, AVIF/WebP images. Mobile performance 70 → about 90, accessibility 96 → 100, phone LCP 6.1s → 3.6s.
+    - V2: curly apostrophes, no tap zoom delay, no desktop rubber-banding, brand name kept from auto-translate.
+    - V3: themed text cursor and scrollbar; hero loops pause off screen.
+    - V4: deeper hero gradient (the first slide's label reaches about 4.5:1), Contact as an outline button in the header (white over the hero, pink once pinned), larger package prices.
+    - V5: larger section titles, a gold line across package cards on hover, a fill sweep on buttons.
+  - **Kept by request:** the hero slideshow has no pause control.
+  - **Also fixed:** the weddings label keeps each "·" with the word before it, so no line starts with a dot.

@@ -6,7 +6,6 @@ import { Faq } from "@/components/sections/Faq";
 import { Hero } from "@/components/sections/Hero";
 import { Packages } from "@/components/sections/Packages";
 import { Process } from "@/components/sections/Process";
-import { PullQuote } from "@/components/sections/PullQuote";
 import { RecentWeddings } from "@/components/sections/RecentWeddings";
 import { Reviews } from "@/components/sections/Reviews";
 
@@ -23,7 +22,6 @@ export default function Home() {
       <Hero />
       <main id="main">
         <About />
-        <PullQuote />
         <RecentWeddings />
         <Packages />
         <Process />
