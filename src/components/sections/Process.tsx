@@ -78,6 +78,17 @@ export function Process() {
         tl.call(() => setDone(true));
         timeline.current = tl;
         ScrollTrigger.create({ trigger: "[data-timeline]", start: "top 70%", once: true, onEnter: () => tl.play() });
+        // Once started, the sequence pauses wherever it is while the timeline is off screen and
+        // carries on when it's back, so the confetti never fires out of sight.
+        ScrollTrigger.create({
+          trigger: "[data-timeline]",
+          start: "top bottom",
+          end: "bottom top",
+          onToggle: ({ isActive }) => {
+            const started = tl.progress() > 0 && tl.progress() < 1;
+            if (started) tl.paused(!isActive);
+          },
+        });
       });
       return () => mm.revert();
     },

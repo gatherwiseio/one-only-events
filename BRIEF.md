@@ -190,3 +190,7 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
     - New order: Samantha, Talia, Kelly, Monique, Natasha, Elysha, Caroline.
     - The card can be dragged with a mouse or swiped.
     - Compact nav dots sit below the card (24px apart). Choosing one smoothly scrolls the card's top to just under the header (`scrollToElement` in SmoothScroll), at every width.
+- **CTA and How it works, 2026-11-05 (later):**
+  - **CTA photo framing:** the photo is framed low (`object-position: 50% 85%`), so the arch and Mokoliʻi show instead of the palm tops.
+  - **Gradient and text:** the side gradient is lighter (50% → 30% → clear by 60%). The text column is narrower (`max-w-md`), so it stops before the arch, and the label is white so it stays readable (average contrast about 7:1 against the photo).
+  - **How it works:** once the sequence has started, it pauses wherever it is while the timeline is off screen and resumes when it's back, so the confetti never fires out of sight.
