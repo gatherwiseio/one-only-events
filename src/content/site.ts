@@ -54,11 +54,10 @@ export const hero = {
       alt: "A couple standing together in a garden lined with palm trees",
     },
     {
-      src: "/images/hero/mokolii-ceremony-florals.jpg",
-      alt: "A bride and groom touch foreheads during their ceremony, framed by tropical florals with Mokoliʻi behind them",
-      focus: "upper",
+      src: "/images/hero/bar-cart-string-lights.jpg",
+      alt: "A bride and groom share a drink at a string-lit vintage bar trailer at dusk",
     },
-  ] satisfies Slide[],
+  ] as Slide[],
 };
 
 export type AboutPhoto = { src: string; alt: string; speed: "a" | "b" | "c" | "none" };
@@ -214,10 +213,10 @@ export const process = {
   label: "Our planning process",
   replayLabel: "Replay",
   steps: [
-    { icon: "talk", title: "We get to know you", body: "We start with your story: what matters most to you, what you picture, and any worries on your mind." },
-    { icon: "plan", title: "Build the foundation", body: "Together we set your budget, priorities and direction, then map out your vendor needs and next steps." },
-    { icon: "together", title: "Bring it all together", body: "We guide each decision, track every detail and work with your vendors to shape a clear wedding-day plan." },
-    { icon: "celebrate", title: "You celebrate", body: "On the day, our team runs the setup, vendors, timeline and any surprises, so you can simply be present." },
+    { icon: "talk", title: "Connect", body: "Share your story, what you picture and what matters most to you both." },
+    { icon: "plan", title: "Plan", body: "We build the foundation together: your budget, priorities and vendors." },
+    { icon: "together", title: "Create", body: "We guide each choice and bring it all together into one clear plan." },
+    { icon: "celebrate", title: "Celebrate", body: "On the day, we handle every detail so you can be fully present." },
   ] satisfies ProcessStep[],
 };
 
@@ -255,13 +254,41 @@ export const reviews = {
   ],
 };
 
+export const faq = {
+  title: "FAQs",
+  label: "Good to know",
+  intro: "The questions couples ask us most. Don't see yours? Ask away when you reach out.",
+  items: [
+    {
+      question: "How much does a wedding planner in Hawaiʻi cost?",
+      answer:
+        "Full planning starts at $7,500, partial planning at $6,000 and day-of coordination at $2,500. Your quote depends on your guest count, venue and how much help you'd like.",
+    },
+    {
+      question: "Do you plan destination weddings?",
+      answer:
+        "All the time. Many of our couples live on the mainland or abroad. We handle the island side, from vendors to hotel room blocks and guest shuttles, so you can plan from anywhere.",
+    },
+    {
+      question: "What's the difference between planning and coordination?",
+      answer:
+        "Planning starts early, with your budget, vendors, contracts and design. Coordination is for couples who've planned it themselves: we step in about two months out and run the day.",
+    },
+    {
+      question: "Do you plan multicultural weddings?",
+      answer:
+        "Yes, and we love them. Sunny has called Japan, Korea, London and now Hawaiʻi home, so blending traditions, languages and families feels natural to us.",
+    },
+  ],
+};
+
 export const cta = {
-  title: "Start planning your One & Only event",
+  title: "Let's plan your one\u00a0& only day",
   label: "Weddings throughout the islands",
-  body: "Let's dream big, get creative, and build a celebration that's completely, unmistakably yours. Together.",
+  body: "Tell us about the two of you and the celebration you're dreaming of. We'll take it from there, together.",
   image: {
-    src: "/images/weddings/lei-ceremony.jpg",
-    alt: "A smiling couple wearing lei during their ceremony",
+    src: "/images/cta/tent-reception-palms.jpg",
+    alt: "A white reception tent glowing at dusk on a lawn among tall palm trees",
   },
   primary: { ...contactPage, label: "Start your inquiry" },
 };

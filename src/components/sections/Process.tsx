@@ -125,7 +125,7 @@ export function Process() {
             })}
           </ol>
         </div>
-        <div className="flex min-h-tap items-center justify-center">
+        <div className="flex min-h-tap items-center justify-center lg:justify-end">
           {done ? (
             <button
               type="button"

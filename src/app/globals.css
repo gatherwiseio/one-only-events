@@ -121,6 +121,7 @@
 }
 
 :root {
+  interpolate-size: allow-keywords;
   --hero-h: clamp(36rem, 92svh, 55rem);
   --dialog-w: min(35rem, calc(100vw - 2rem));
   --stop-size: 3.5rem;
@@ -212,6 +213,20 @@
   @media (prefers-reduced-motion: reduce) {
     .link-beam:hover,
     .link-beam:focus-visible { animation: none; }
+  }
+
+  /* FAQ answers slide open and closed where the browser supports animating to auto height;
+     elsewhere they simply open. */
+  .faq::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size 0.4s var(--ease-soft), content-visibility 0.4s allow-discrete;
+  }
+  .faq[open]::details-content {
+    block-size: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq::details-content { transition: none; }
   }
 
   /* The ONE & ONLY wordmark: one vector file used as a mask, colored by `currentColor` */

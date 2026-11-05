@@ -3,17 +3,25 @@ import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { cta } from "@/content/site";
 
+/**
+ * Inquiry call to action: a scenic photo with the text on a solid cream panel, never on the photo.
+ * From md the photo fills the band and the panel sits on it at the left; on phones the photo
+ * sits above the panel.
+ */
 export function Cta() {
   return (
-    <section id="inquire" aria-labelledby="inquire-title" className="relative isolate overflow-hidden px-gutter py-section text-on-photo">
-      <Image src={cta.image.src} alt="" fill sizes="100vw" className="-z-20 object-cover" />
-      <div className="absolute inset-0 -z-10 bg-(image:--scrim-cta)" aria-hidden="true" />
-      <div className="mx-auto flex max-w-copy flex-col items-start gap-6 py-10 text-left md:items-center md:text-center">
-        <SectionHeading id="inquire-title" title={cta.title} label={cta.label} tone="dark" />
-        <p className="text-body">{cta.body}</p>
-        <Button href={cta.primary.href} live={cta.primary.live} variant="primary" tone="dark" className="mt-2">
-          {cta.primary.label}
-        </Button>
+    <section id="inquire" aria-labelledby="inquire-title" className="relative isolate overflow-hidden md:px-gutter md:py-16">
+      <div className="relative aspect-4/3 md:absolute md:inset-0 md:-z-10 md:aspect-auto">
+        <Image src={cta.image.src} alt={cta.image.alt} fill sizes="100vw" className="object-cover" />
+      </div>
+      <div className="mx-auto max-w-wide">
+        <div className="flex flex-col items-start gap-5 bg-surface px-gutter py-12 md:max-w-xl md:p-10">
+          <SectionHeading id="inquire-title" title={cta.title} label={cta.label} align="start" />
+          <p className="text-body">{cta.body}</p>
+          <Button href={cta.primary.href} live={cta.primary.live} variant="primary" className="mt-2">
+            {cta.primary.label}
+          </Button>
+        </div>
       </div>
     </section>
   );
