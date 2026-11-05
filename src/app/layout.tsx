@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Lora, Montserrat } from "next/font/google";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { seo } from "@/content/site";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -28,7 +30,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${montserrat.variable} ${lora.variable} antialiased`}>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

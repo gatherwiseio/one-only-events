@@ -8,6 +8,7 @@
   /* Colors, by role */
   --color-surface: #fffef9;
   --color-surface-alt: #f6f4eb;
+  --color-card: #ffffff;
   --color-ink: #373737;
   --color-ink-muted: #55524a;
   --color-accent: #6e5f36;
@@ -136,6 +137,10 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+  }
+  /* Lenis handles smooth scrolling itself; native smooth scrolling would fight it */
+  html.lenis {
+    scroll-behavior: auto;
   }
   body {
     background: var(--color-surface);

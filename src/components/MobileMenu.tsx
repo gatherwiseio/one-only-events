@@ -50,6 +50,7 @@ export function MobileMenu({ tone }: { tone: "light" | "dark" }) {
         ? createPortal(
             <div
               id="mobile-menu"
+              data-lenis-prevent
               role="dialog"
               aria-modal="true"
               aria-label="Menu"

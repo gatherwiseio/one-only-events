@@ -9,7 +9,7 @@ export function Packages() {
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
   return (
-    <section id="packages" aria-labelledby="packages-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section">
+    <section id="packages" aria-labelledby="packages-title" className="scroll-mt-20 bg-surface px-gutter py-section">
       <SectionHeading id="packages-title" title={packages.title} label={packages.label} />
       <div className="mx-auto mt-group grid max-w-content grid-cols-1 gap-6 lg:grid-cols-3">
         {packages.items.map((item) => {
@@ -20,7 +20,7 @@ export function Packages() {
             <article
               key={item.id}
               aria-labelledby={`${item.id}-name`}
-              className="row-span-6 grid grid-rows-subgrid gap-y-4 bg-surface px-6 pt-10 pb-8 sm:px-8"
+              className="row-span-6 grid grid-rows-subgrid gap-y-4 border border-line bg-card px-6 pt-10 pb-8 sm:px-8"
             >
               <h3 id={`${item.id}-name`} className="font-display text-card-title font-normal uppercase">
                 {item.name}
