@@ -130,7 +130,7 @@ export function Process() {
             <button
               type="button"
               onClick={replay}
-              className="inline-flex items-center gap-2 py-3 font-display text-label font-semibold uppercase link-sweep text-accent"
+              className="inline-flex items-center gap-2 py-3 font-display text-label font-semibold uppercase link-beam text-accent"
             >
               <RotateCcw size={14} strokeWidth={1.75} aria-hidden="true" />
               {process.replayLabel}

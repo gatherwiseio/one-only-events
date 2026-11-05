@@ -161,3 +161,7 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
   - **How it works:** on phones, the rail stops at step 4's circle. This is done in CSS: the last step paints the section background over the rail below its circle. Replay is centered.
   - **Hero:** the scroll cue beam is pink (`--color-pink`).
   - **Local previews:** the Next.js dev badge is turned off (`devIndicators: false`).
+- **Link hover and packages, 2026-11-05 (later):**
+  - **Link hover:** the color sweep was disliked and is replaced. On hover or focus, a short soft-edged beam in the link's own color now shoots along the underline once, left to right (`.link-beam`, 0.8s; none with reduced motion). There's no color change.
+  - **Package cards:** the audience lines ("We plan it all" and so on) are removed. The card order is photo, name, price, description, the full-width pink outline Learn more, then a centered "What's included".
+  - **Pop-up:** it no longer has a Learn more button and ends with the pricing note.

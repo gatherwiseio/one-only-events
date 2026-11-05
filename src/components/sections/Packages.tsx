@@ -9,9 +9,9 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { packages, servicesPage } from "@/content/site";
 
 /**
- * Service packages: one card per package (clean photo, name, price, then who it suits as a short
- * lead into the description) and a centered gold "What's included" link that opens a pop-up with
- * the full list and the pink "Learn more".
+ * Service packages: one card per package (clean photo, name, price, a short description), a
+ * full-width pink outline "Learn more" and a centered gold "What's included" link that opens a
+ * pop-up with the full list.
  */
 export function Packages() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -45,14 +45,18 @@ export function Packages() {
               {pkg.name}
             </h3>
             <p className="px-6 pt-1 font-display text-price font-medium text-accent sm:px-7">{pkg.price}</p>
-            <p className="px-6 pt-5 text-body-sm font-semibold sm:px-7">{pkg.tag}</p>
-            <p className="px-6 pt-1 text-body-sm text-ink-muted sm:px-7">{pkg.description}</p>
-            <div className="flex justify-center px-6 pt-4 pb-5 sm:px-7">
+            <p className="px-6 pt-4 text-body-sm text-ink-muted sm:px-7">{pkg.description}</p>
+            <div className="px-6 pt-6 sm:px-7">
+              <Button href={`${servicesPage.href}#${pkg.id}`} live={servicesPage.live} variant="secondary" tone="pink" className="w-full">
+                {packages.learnMoreLabel}
+              </Button>
+            </div>
+            <div className="flex justify-center px-6 pt-2 pb-5 sm:px-7">
               <button
                 type="button"
                 onClick={() => setActive(i)}
                 aria-haspopup="dialog"
-                className="link-sweep py-3 font-display text-label font-semibold uppercase text-accent-label"
+                className="link-beam py-3 font-display text-label font-semibold uppercase text-accent-label"
               >
                 {packages.includedLabel}
               </button>
@@ -98,12 +102,7 @@ export function Packages() {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col gap-5 border-t border-line px-6 py-6">
-              <p className="text-body-sm text-ink-muted">{packages.note}</p>
-              <Button href={`${servicesPage.href}#${item.id}`} live={servicesPage.live} variant="primary" tone="pink" className="self-start">
-                {packages.learnMoreLabel}
-              </Button>
-            </div>
+            <p className="border-t border-line px-6 py-6 text-body-sm text-ink-muted">{packages.note}</p>
           </div>
         ) : null}
       </dialog>

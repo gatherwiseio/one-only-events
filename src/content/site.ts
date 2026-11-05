@@ -119,7 +119,6 @@ export type Package = {
   name: string;
   price: string;
   /** A few words on who it suits, shown above the name */
-  tag: string;
   description: string;
   bestFor: string;
   priceDetail?: string;
@@ -147,7 +146,6 @@ export const packages = {
       id: "full-planning",
       name: "Full Planning",
       price: "Starting at $7,500",
-      tag: "We plan it all",
       description: "From your first idea to your last dance, we plan it all. You share the vision, and we bring it to life.",
       bestFor: "For couples who would love us to take care of everything.",
       image: {
@@ -173,7 +171,6 @@ export const packages = {
       id: "partial-planning",
       name: "Partial Planning",
       price: "Starting at $6,000",
-      tag: "Help where you need it",
       description: "Some pieces are already in place. We step in where you need us most, from vendors and design to your timeline.",
       bestFor: "For couples who have started planning and want a hand with the rest.",
       image: {
@@ -193,7 +190,6 @@ export const packages = {
       name: "Day of Coordination",
       price: "Starting at $2,500",
       priceDetail: "Indoor events from $2,500 · outdoor events from $4,500",
-      tag: "You plan, we run the day",
       description: "You've done the planning. We make sure your wedding day runs smoothly, working behind the scenes so you can enjoy it.",
       bestFor: "For couples who have planned it all and want to relax on the day.",
       image: {

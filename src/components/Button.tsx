@@ -23,10 +23,10 @@ const styles: Record<Variant, Record<Tone, string>> = {
     current: secondary,
   },
   link: {
-    light: "link-sweep inline-block py-3 font-semibold text-accent",
-    dark: "link-sweep inline-block py-3 font-semibold text-on-photo [--sweep:var(--color-pink)]",
-    pink: "link-sweep inline-block py-3 font-semibold text-pink [--sweep:var(--color-accent-label)]",
-    current: "link-sweep inline-block py-3 font-semibold text-current",
+    light: "link-beam inline-block py-3 font-semibold text-accent",
+    dark: "link-beam inline-block py-3 font-semibold text-on-photo",
+    pink: "link-beam inline-block py-3 font-semibold text-pink",
+    current: "link-beam inline-block py-3 font-semibold text-current",
   },
 };
 
