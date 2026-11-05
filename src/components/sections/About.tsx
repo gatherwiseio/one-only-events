@@ -5,7 +5,7 @@ import { about } from "@/content/site";
 
 export function About() {
   return (
-    <section id="about" aria-labelledby="about-title" className="scroll-mt-6 px-gutter py-section">
+    <section id="about" aria-labelledby="about-title" className="scroll-mt-20 px-gutter py-section">
       <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-16">
         <div className="relative mx-auto aspect-4/5 w-full max-w-sm md:col-span-5 md:max-w-none lg:col-span-4 lg:col-start-2">
           <Image src={about.image.src} alt={about.image.alt} fill sizes="(width >= 48rem) 35vw, 90vw" className="object-cover" />

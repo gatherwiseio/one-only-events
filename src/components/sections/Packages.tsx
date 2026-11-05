@@ -9,7 +9,7 @@ export function Packages() {
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
   return (
-    <section id="packages" aria-labelledby="packages-title" className="scroll-mt-6 bg-surface-alt px-gutter py-section">
+    <section id="packages" aria-labelledby="packages-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section">
       <SectionHeading id="packages-title" title={packages.title} label={packages.label} />
       <div className="mx-auto mt-group grid max-w-content grid-cols-1 gap-6 lg:grid-cols-3">
         {packages.items.map((item) => {

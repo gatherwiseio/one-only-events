@@ -79,6 +79,17 @@
   /* Motion */
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --animate-hero-zoom: hero-zoom 14s var(--ease-soft) both;
+  --animate-scroll-cue: scroll-cue 2.4s var(--ease-soft) infinite;
+
+  @keyframes scroll-cue {
+    0% {
+      transform: translateY(-100%);
+    }
+    70%,
+    100% {
+      transform: translateY(300%);
+    }
+  }
 
   @keyframes hero-zoom {
     from {
@@ -242,7 +253,8 @@
     .slide-fade {
       transition: none;
     }
-    .animate-hero-zoom {
+    .animate-hero-zoom,
+    .animate-scroll-cue {
       animation: none;
     }
   }

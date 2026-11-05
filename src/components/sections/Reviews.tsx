@@ -4,7 +4,7 @@ import { reviews } from "@/content/site";
 
 export function Reviews() {
   return (
-    <section id="reviews" aria-labelledby="reviews-title" className="scroll-mt-6 bg-surface-alt px-gutter py-section">
+    <section id="reviews" aria-labelledby="reviews-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section">
       <SectionHeading id="reviews-title" title={reviews.title} label={reviews.label} />
       <div className="mx-auto mt-group grid max-w-content grid-cols-1 gap-6 lg:grid-cols-3">
         {reviews.items.map((review) => (

@@ -30,38 +30,32 @@ export const servicesPage: PageLink = pages[1];
 export const portfolioPage: PageLink = pages[2];
 export const aboutPage: PageLink = pages[0];
 
-export type Slide = { src: string; alt: string; caption: string };
+export type Slide = { src: string; alt: string };
 
 export const hero = {
   label: "Hawaiʻi wedding planning & design",
-  title: "Your day, your story, your way",
-  link: { label: "Meet Sunny", href: "#about" },
-  scroll: { lead: "Scroll to", word: "explore" },
+  title: "Your day, your story, your\u00a0way",
+  scrollCue: { label: "Scroll to see more", href: "#about" },
   slides: [
     {
       src: "/images/hero/couple-mokolii-lawn.jpg",
       alt: "A bride and groom walk hand in hand across a seaside lawn with Mokoliʻi in the distance",
-      caption: "A seaside lawn with Mokoliʻi in the distance",
     },
     {
       src: "/images/hero/oceanfront-floral-aisle.jpg",
       alt: "A ceremony aisle lined with bright florals and wooden chairs, facing the ocean",
-      caption: "A floral aisle facing the ocean",
     },
     {
       src: "/images/hero/mountain-lawn-ceremony.jpg",
       alt: "Rows of wooden ceremony chairs on a lawn beneath green mountains",
-      caption: "A lawn ceremony beneath the mountains",
     },
     {
       src: "/images/hero/couple-palm-garden.jpg",
       alt: "A couple standing together in a garden lined with palm trees",
-      caption: "A garden ceremony among the palms",
     },
     {
-      src: "/images/hero/reception-dance-floor.jpg",
-      alt: "Guests dancing on a crowded, colorfully lit reception dance floor",
-      caption: "A full dance floor",
+      src: "/images/hero/palm-grove-reception-tent.jpg",
+      alt: "A white reception tent glowing among tall palm trees at dusk, with guests arriving",
     },
   ] satisfies Slide[],
 };

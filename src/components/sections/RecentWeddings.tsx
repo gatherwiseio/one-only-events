@@ -7,7 +7,7 @@ const speedClass = { a: "parallax-a", b: "parallax-b", c: "parallax-c" } as cons
 
 export function RecentWeddings() {
   return (
-    <section id="weddings" aria-labelledby="weddings-title" className="scroll-mt-6 overflow-hidden px-gutter pt-section pb-section md:pb-48">
+    <section id="weddings" aria-labelledby="weddings-title" className="scroll-mt-20 overflow-hidden px-gutter pt-section pb-section md:pb-48">
       <div className="mx-auto flex max-w-content flex-col items-center gap-6 text-center">
         <SectionHeading id="weddings-title" title={weddings.title} label={weddings.label} />
         <p className="max-w-copy text-body">{weddings.intro}</p>

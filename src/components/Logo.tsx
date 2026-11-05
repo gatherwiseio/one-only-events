@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { business } from "@/content/site";
 
-type Tone = "light" | "dark" | "panel";
+type Tone = "light" | "ink" | "dark" | "panel";
 
 const toneClass: Record<Tone, string> = {
   light: "text-brand",
+  ink: "text-ink",
   dark: "text-on-photo",
   panel: "text-on-panel",
 };

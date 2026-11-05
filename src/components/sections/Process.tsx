@@ -4,7 +4,7 @@ import { process } from "@/content/site";
 
 export function Process() {
   return (
-    <section id="process" aria-labelledby="process-title" className="scroll-mt-6 px-gutter py-section">
+    <section id="process" aria-labelledby="process-title" className="scroll-mt-20 px-gutter py-section">
       <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="flex flex-col gap-10 lg:col-span-7">
           <SectionHeading id="process-title" title={process.title} label={process.label} align="start" />
