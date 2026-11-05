@@ -135,7 +135,7 @@ const dayOfInclusions = [
 
 export const packages = {
   title: "Service packages",
-  label: "Planning shaped around your day",
+  label: "As much or as little help as you need",
   // Shown at the foot of each package's "What's included" pop-up
   note: "Investments are based on celebrations with up to 100 guests and a single location for both ceremony and reception. Pricing is tailored to your venue, guest count, and level of planning support.",
   includedLabel: "What's included",
@@ -148,8 +148,8 @@ export const packages = {
       description: "From your first idea to your last dance, we handle it all. You bring the vision — we bring it to life.",
       bestFor: "Best for couples who want a true done-for-you experience",
       image: {
-        src: "/images/packages/full-planning-tablescape.jpg",
-        alt: "A reception table set with hand-painted taper candles and glass hurricanes beside a rattan peacock chair",
+        src: "/images/packages/full-planning-beach-embrace.jpg",
+        alt: "A newlywed couple in lei embrace on the beach at sunset, Diamond Head behind them",
       },
       inclusions: [
         "Getting to know your vision, priorities, and overall wedding goals",
@@ -173,8 +173,8 @@ export const packages = {
       description: "Some pieces are in place, others need a hand. We step in wherever you need us most — vendors, design, timeline, and more.",
       bestFor: "Best for couples who want support filling in the gaps",
       image: {
-        src: "/images/packages/partial-planning-hanging-florals.jpg",
-        alt: "Strands of hanging florals and greenery suspended over a lawn",
+        src: "/images/packages/partial-planning-tablescape.jpg",
+        alt: "A reception table set with hand-painted taper candles and glass hurricanes beside a rattan peacock chair",
       },
       inclusions: [
         "Immediate planning support — no waiting period",
@@ -192,8 +192,8 @@ export const packages = {
       description: "You've planned the wedding — we make sure it runs without a hitch. Think of us as your day's behind-the-scenes crew.",
       bestFor: "Best for couples who've done the planning and just want to enjoy the day",
       image: {
-        src: "/images/packages/day-of-bubble-exit.jpg",
-        alt: "A newlywed couple kisses as guests send them off with bubbles",
+        src: "/images/packages/day-of-bridal-details.jpg",
+        alt: "Bridal shoes and wedding stationery laid out on the wedding morning",
       },
       inclusions: [
         "Planning support beginning about two months before the wedding",
@@ -208,8 +208,8 @@ export const process = {
   title: "Our planning process",
   label: "How it works",
   image: {
-    src: "/images/weddings/bridal-shoes-details.jpg",
-    alt: "Bridal shoes and wedding stationery laid out on the wedding morning",
+    src: "/images/weddings/bubble-send-off.jpg",
+    alt: "A newlywed couple kisses as guests send them off with bubbles",
   },
   steps: [
     { title: "We get to know you", body: "We begin with your story, priorities, preferences, concerns, and vision for the celebration." },
