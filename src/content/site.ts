@@ -120,7 +120,8 @@ export type Package = {
   price: string;
   description: string;
   bestFor: string;
-  highlights: number[];
+  priceDetail?: string;
+  image: { src: string; alt: string };
   inclusions: string[];
 };
 
@@ -134,18 +135,22 @@ const dayOfInclusions = [
 
 export const packages = {
   title: "Service packages",
-  label: "Three ways to work with Sunny",
+  label: "Planning shaped around your day",
+  // Shown at the foot of each package's "What's included" pop-up
   note: "Investments are based on celebrations with up to 100 guests and a single location for both ceremony and reception. Pricing is tailored to your venue, guest count, and level of planning support.",
-  primary: { ...contactPage, label: "Plan with Sunny" },
-  secondary: { ...servicesPage, label: "Compare all services" },
+  includedLabel: "What's included",
+  learnMoreLabel: "Learn more",
   items: [
     {
       id: "full-planning",
       name: "Full Planning",
-      price: "Starting at $7,500",
+      price: "Starting at $7,500",
       description: "From your first idea to your last dance, we handle it all. You bring the vision — we bring it to life.",
       bestFor: "Best for couples who want a true done-for-you experience",
-      highlights: [3, 1, 8],
+      image: {
+        src: "/images/packages/full-planning-tablescape.jpg",
+        alt: "A reception table set with hand-painted taper candles and glass hurricanes beside a rattan peacock chair",
+      },
       inclusions: [
         "Getting to know your vision, priorities, and overall wedding goals",
         "Thoughtful budget guidance with clear cost breakdowns",
@@ -164,10 +169,13 @@ export const packages = {
     {
       id: "partial-planning",
       name: "Partial Planning",
-      price: "Starting at $6,000",
+      price: "Starting at $6,000",
       description: "Some pieces are in place, others need a hand. We step in wherever you need us most — vendors, design, timeline, and more.",
       bestFor: "Best for couples who want support filling in the gaps",
-      highlights: [0, 1, 3],
+      image: {
+        src: "/images/packages/partial-planning-hanging-florals.jpg",
+        alt: "Strands of hanging florals and greenery suspended over a lawn",
+      },
       inclusions: [
         "Immediate planning support — no waiting period",
         "Curated vendor recommendations tailored to your needs",
@@ -179,10 +187,14 @@ export const packages = {
     {
       id: "day-of-coordination",
       name: "Day of Coordination",
-      price: "Starting at $2,500 indoor · $4,500 outdoor",
+      price: "Starting at $2,500",
+      priceDetail: "Indoor events from $2,500 · outdoor events from $4,500",
       description: "You've planned the wedding — we make sure it runs without a hitch. Think of us as your day's behind-the-scenes crew.",
       bestFor: "Best for couples who've done the planning and just want to enjoy the day",
-      highlights: [0, 3, 5],
+      image: {
+        src: "/images/packages/day-of-bubble-exit.jpg",
+        alt: "A newlywed couple kisses as guests send them off with bubbles",
+      },
       inclusions: [
         "Planning support beginning about two months before the wedding",
         "Review of vendor contracts, invoices, floor plans, and orders",

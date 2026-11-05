@@ -7,6 +7,12 @@ import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/** Pause or resume page scrolling, e.g. while a pop-up or the phone menu is open. */
+export function lockScroll(locked: boolean) {
+  document.documentElement.style.overflow = locked ? "hidden" : "";
+  window.dispatchEvent(new CustomEvent("scroll-lock", { detail: locked }));
+}
+
 /**
  * Site-wide smooth scrolling (Lenis), driven by GSAP's ticker so scroll-linked animations
  * stay in sync. Skipped entirely for visitors who prefer reduced motion.
@@ -21,7 +27,11 @@ export function SmoothScroll() {
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
 
+    const onLock = (event: Event) => ((event as CustomEvent<boolean>).detail ? lenis.stop() : lenis.start());
+    window.addEventListener("scroll-lock", onLock);
+
     return () => {
+      window.removeEventListener("scroll-lock", onLock);
       gsap.ticker.remove(tick);
       lenis.destroy();
     };

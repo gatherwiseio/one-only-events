@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Logo } from "@/components/Logo";
+import { lockScroll } from "@/components/motion/SmoothScroll";
 import { NavLink } from "@/components/NavLink";
 import { business, pages } from "@/content/site";
 
@@ -19,11 +20,11 @@ export function MobileMenu({ tone }: { tone: "light" | "dark" }) {
       if (event.key === "Escape") setOpen(false);
     };
     document.addEventListener("keydown", onKey);
-    document.documentElement.style.overflow = "hidden";
+    lockScroll(true);
     const opener = openRef.current;
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.documentElement.style.overflow = "";
+      lockScroll(false);
       opener?.focus();
     };
   }, [open]);
