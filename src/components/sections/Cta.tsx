@@ -21,7 +21,7 @@ export function Cta() {
       <div className="mx-auto max-w-content">
         <div className="flex max-w-md flex-col items-start gap-5 lg:max-w-136">
           <SectionHeading id="inquire-title" title={cta.title} label={cta.label} align="start" tone="dark" labelColor="light-gold" titleClassName="max-xs:text-2xl" />
-          <p className="text-body">{cta.body}</p>
+          <p className="max-w-xs text-body">{cta.body}</p>
           <Button href={cta.primary.href} live={cta.primary.live} variant="primary" className="mt-2">
             {cta.primary.label}
           </Button>
