@@ -210,3 +210,12 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
   - **Also fixed:** the weddings label keeps each "·" with the word before it, so no line starts with a dot.
 - **Favicon, 2026-11-05 (as provided):** Stephanie supplied the full circular badge (`public/images/brand/logo-badge.png`, 1254px, transparent inside the ring). The favicon is that badge at its original 1254px, with only the inside of the ring filled white (found by flood-filling the outside from the edges, so the white follows the ring exactly and never spills past it) and the outside left transparent: `src/app/icon.png`. The iPhone home-screen icon `src/app/apple-icon.png` is the same badge on a white square, also 1254px. This replaced an earlier simplified arches-only favicon.
 - **CTA, 2026-11-05 (later):** the title "Let's plan your one & only day" stays on 2 lines from 320 to 1440 wide. The text column is 34rem from 1024px, and the title steps down to 24px under 380px. The section is shorter (padding 56px on phones, 80px from 768px): 465px tall at 1440, down from 586. The photo runs 18% wider than the section, so the arch starts just past the text at 1440 (about 58% across).
+- **SEO and sharing (step 7), drafts, 2026-11-05:**
+  - **Domain:** the Vercel address for now (`https://one-only-events.vercel.app`).
+  - **Canvas:** https://claude.ai/artifact/Se5PegpGLwDi1AHork6syY has three share-image options (A badge on cream, B photo and badge, C badge on logo green) and a review board.
+  - **Draft text:**
+    - Title: "One & Only Events | Hawaiʻi Wedding Planner" (43).
+    - Description: "Hawaiʻi wedding planning and design by Sunny Cho. Full planning, partial planning and day-of coordination for couples on the islands and from afar." (147).
+    - Share title: "Your day, your story, your way | One & Only Events" (50).
+    - Share description: "Hawaiʻi weddings planned with heart, so you can simply be present on your day." (78).
+  - **Status:** awaiting a pick and edits.
