@@ -2,22 +2,24 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "link";
-type Tone = "light" | "dark";
+type Tone = "light" | "dark" | "pink";
 
 const base = "font-display uppercase text-label transition-colors duration-300 ease-soft";
 
+const primary = "inline-flex items-center justify-center min-h-button px-8 bg-accent font-medium text-on-photo hover:bg-accent-deep";
+const secondary = "inline-flex items-center justify-center min-h-tap px-5 border border-accent font-medium text-accent hover:bg-accent hover:text-on-photo";
+
 const styles: Record<Variant, Record<Tone, string>> = {
-  primary: {
-    light: "inline-flex items-center justify-center min-h-button px-8 bg-accent font-medium text-on-photo hover:bg-accent-deep",
-    dark: "inline-flex items-center justify-center min-h-button px-8 bg-accent font-medium text-on-photo hover:bg-accent-deep",
-  },
+  primary: { light: primary, dark: primary, pink: primary },
   secondary: {
-    light: "inline-flex items-center justify-center min-h-tap px-5 border border-accent font-medium text-accent hover:bg-accent hover:text-on-photo",
+    light: secondary,
     dark: "inline-flex items-center justify-center min-h-tap px-5 border border-on-photo font-medium text-on-photo hover:bg-on-photo hover:text-ink",
+    pink: secondary,
   },
   link: {
     light: "inline-block py-3 font-semibold text-accent underline underline-offset-6 decoration-1 hover:text-accent-deep",
     dark: "inline-block py-3 font-semibold text-on-photo underline underline-offset-6 decoration-1 hover:text-on-photo-muted",
+    pink: "inline-block py-3 font-semibold text-pink underline underline-offset-6 decoration-1 hover:text-pink-deep",
   },
 };
 

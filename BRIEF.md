@@ -121,8 +121,10 @@ Helps prospective clients understand who Sunny is, what she does, what she offer
 - **Motion:** CSS only (crossfade, scroll-driven parallax); everything off under `prefers-reduced-motion`.
 - **Hero, revised 2026-11-05:** no caption strip, controls or "Meet Sunny". Label and title sit low on the left, with a thin animated line (scroll cue) running down their left side, exactly their height, lined up with the logo's left edge; it jumps to About. The slideshow has no visible pause button (Stephanie's call); it stops for visitors who prefer reduced motion.
 - **Header:** clear with white type over the hero and scrolls away with it; once the hero has fully left the screen it slides back in from the top, pinned, cream (95%, slight blur) with a hairline and black (`ink`) logo and nav.
-- **Pink:** `--color-pink` #E85FA3 (Stephanie, 2026-11-05), used for the Meet Sunny label. Contrast on cream is 3.15:1, under the 4.5:1 guideline for small text; #C2387F would pass at 4.99:1.
-- **Meet Sunny copy:** rewritten 2026-11-05 from Sunny's homepage intro and her four "Why Choose Us" points, with no new facts.
+- **Pink:** `--color-pink` #E85FA3 (Stephanie, 2026-11-05), used for the "More about Sunny" link (hover `--color-pink-deep` #C2387F); the Meet Sunny label is back to gold. Contrast on cream is 3.15:1, under the 4.5:1 guideline for small text; #C2387F would pass at 4.99:1.
+- **Meet Sunny copy:** rewritten twice on 2026-11-05 from Sunny's homepage intro and her four "Why Choose Us" points, with no new facts; second pass for smoother flow.
+- **Meet Sunny photos:** overlapping mosaic (`.about-mosaic` in globals.css): the portrait as the main tile, the night light-painting shot (cropped close on her face) top right and the Wix crop of her styling a table bottom right, with cream borders and the same parallax as Recent weddings. Stacks above the text below 1024px.
+- **Hero overlay:** lightened on 2026-11-05 from 42% top / 70% bottom to 25% top / 45% bottom.
 - **Tokens in code:** all in `src/app/globals.css` `@theme`: colors (`surface`, `surface-alt`, `ink`, `ink-muted`, `accent`, `accent-deep`, `accent-soft`, `line`, `on-photo`, `on-photo-muted`, `panel`, `on-panel`, `on-panel-muted`, `accent-on-dark`, `photo-fallback`), fonts (`display` Montserrat, `body` Lora), type (`text-hero`, `text-title`, `text-card-title`, `text-quote`, `text-body`, `text-body-sm`, `text-price`, `text-label`, `text-wordmark`, `text-display-xl`), spacing (`section`, `gutter`, `group`, `tap`, `button`), widths (`max-w-content` 1200, `max-w-wide` 1240, `max-w-copy` 600, `max-w-hero-copy` 560), breakpoint `xs` 380px, motion (`ease-soft`, `animate-hero-zoom`). Layout variables in `:root`: `--hero-h`, parallax distances, photo scrims. Copy and data in `src/content/site.ts`.
   - Gotcha: don't name a spacing token `block` (Tailwind v4 reads `inline-block` as `inline-size: var(--spacing-block)`).
 
@@ -135,6 +137,6 @@ Helps prospective clients understand who Sunny is, what she does, what she offer
 ## Homepage photos
 Downloaded originals stay outside the repo; optimized copies in `public/images/`:
 - Hero slideshow: `hero/couple-mokolii-lawn`, `hero/oceanfront-floral-aisle`, `hero/mountain-lawn-ceremony`, `hero/couple-palm-garden`, `hero/palm-grove-reception-tent` (replaced the dance-floor kiss on 2026-11-05; only 1600px wide, slightly soft on large retina screens)
-- About: `sunny/sunny-portrait` (Kim Raaf). Process: `sunny/sunny-at-work`.
+- About mosaic: `sunny/sunny-portrait`, `sunny/sunny-light-painting-close`, `sunny/sunny-styling-table` (Kim Raaf portraits). Process: `weddings/bridal-shoes-details`. Unused now: `sunny/sunny-at-work`.
 - Recent weddings mosaic: `weddings/oceanfront-ceremony-chairs`, `couple-florals-kiss`, `couple-palms-lawn`, `painted-floral-cake`, `archway-ceremony`, `black-white-carry`, `palm-grove-procession`
-- Call to action: `weddings/lei-ceremony`. Unused for now: `weddings/bridal-shoes-details`.
+- Call to action: `weddings/lei-ceremony`.

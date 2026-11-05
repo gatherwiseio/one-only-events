@@ -60,20 +60,36 @@ export const hero = {
   ] satisfies Slide[],
 };
 
+export type AboutPhoto = { src: string; alt: string; speed: "a" | "b" | "c" };
+
 export const about = {
   title: "Meet Sunny",
   label: "Founder of One\u00a0&\u00a0Only\u00a0Events",
-  image: {
-    src: "/images/sunny/sunny-portrait.jpg",
-    alt: "Sunny Cho, founder of One & Only Events, smiling with her arms crossed",
-  },
+  // Overlapping portrait mosaic: main portrait, then the two smaller tiles laid over it.
+  photos: [
+    {
+      src: "/images/sunny/sunny-portrait.jpg",
+      alt: "Sunny Cho, founder of One & Only Events, smiling with her arms crossed",
+      speed: "a",
+    },
+    {
+      src: "/images/sunny/sunny-light-painting-close.jpg",
+      alt: "Sunny laughing as she snaps a photo on her phone beneath ribbons of light at a nighttime celebration",
+      speed: "c",
+    },
+    {
+      src: "/images/sunny/sunny-styling-table.jpg",
+      alt: "Sunny smiling as she arranges florals on a reception table",
+      speed: "b",
+    },
+  ] satisfies AboutPhoto[],
   // Rewritten 2026-11-05 from Sunny's own homepage copy: the intro ("Your Day, Your Story,
   // Your Way") and her four "Why Choose Us" points. No new facts added.
-  lead: "A wedding should feel like the two of you. Not someone else's Pinterest board, and not a template with new names on it.",
+  lead: "Your wedding should feel like the two of you, not like someone else's Pinterest\u00a0board.",
   paragraphs: [
-    "Sunny has made a home in Tokyo, Seoul, London and now Hawaiʻi. That range shapes how she plans: multicultural and blended-family weddings are second nature to her, and she gives each tradition, and each family, its rightful place in the day.",
-    "Her background is in finance and accounting, so budgets add up and contracts get read line by line. She knows the venue rules, the island weather and what guests flying in will need, and she settles the small things before they become expensive ones.",
-    "None of that shows on the day itself. What your guests feel is a celebration that's personal, joyful and completely yours, and again and again, they tell us it's the best wedding they've been to.",
+    "That belief is at the heart of One & Only Events. Sunny has lived in Tokyo, Seoul, London and now Hawaiʻi, and that wide view shapes how she plans. Different traditions, families and expectations all find their place, brought together with\u00a0care.",
+    "She is also meticulous. A background in finance and accounting means your budget stays clear and your contracts get a careful read, while venue rules, island weather and guest travel are sorted long before they can become\u00a0problems.",
+    "On the day, none of that work shows. What you feel is a celebration that is relaxed, joyful and entirely yours, and your guests leave talking about it. Again and again, they tell us it was the best wedding they've been\u00a0to.",
   ],
   link: { ...aboutPage, label: "More about Sunny" },
 };
@@ -179,8 +195,8 @@ export const process = {
   title: "Our planning process",
   label: "How it works",
   image: {
-    src: "/images/sunny/sunny-at-work.jpg",
-    alt: "Sunny arranging florals on a reception table",
+    src: "/images/weddings/bridal-shoes-details.jpg",
+    alt: "Bridal shoes and wedding stationery laid out on the wedding morning",
   },
   steps: [
     { title: "We get to know you", body: "We begin with your story, priorities, preferences, concerns, and vision for the celebration." },

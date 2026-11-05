@@ -23,6 +23,7 @@
   --color-photo-fallback: #4f4d4a;
   --color-brand: #3d6b1f;
   --color-pink: #e85fa3;
+  --color-pink-deep: #c2387f;
 
   /* Fonts */
   --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
@@ -122,10 +123,10 @@
   --parallax-c: 160px;
   --scrim-hero: linear-gradient(
     180deg,
-    rgb(30 27 22 / 0.42) 0%,
-    rgb(30 27 22 / 0) 26%,
-    rgb(30 27 22 / 0) 45%,
-    rgb(30 27 22 / 0.7) 100%
+    rgb(30 27 22 / 0.25) 0%,
+    rgb(30 27 22 / 0) 20%,
+    rgb(30 27 22 / 0) 55%,
+    rgb(30 27 22 / 0.45) 100%
   );
   --scrim-cta: linear-gradient(180deg, rgb(30 27 22 / 0.55), rgb(30 27 22 / 0.65));
 }
@@ -228,6 +229,44 @@
       grid-column: 5 / 13;
       margin-top: 5rem;
     }
+  }
+
+  /* Meet Sunny: main portrait with two smaller photos overlapping it. Percentages keep
+     the composition intact at every width; each crop is set so Sunny's face stays in view. */
+  .about-mosaic {
+    position: relative;
+    aspect-ratio: 6 / 7;
+  }
+  .about-mosaic > * {
+    position: absolute;
+    overflow: hidden;
+  }
+  .about-mosaic > :nth-child(1) {
+    left: 0;
+    top: 8%;
+    width: 62%;
+    height: 78%;
+  }
+  .about-mosaic > :nth-child(1) img {
+    object-position: 50% 25%;
+  }
+  .about-mosaic > :nth-child(2) {
+    left: 52%;
+    top: 0;
+    width: 48%;
+    height: 26%;
+  }
+  .about-mosaic > :nth-child(2) img {
+    object-position: 42% 45%;
+  }
+  .about-mosaic > :nth-child(3) {
+    left: 54%;
+    top: 62%;
+    width: 46%;
+    height: 35%;
+  }
+  .about-mosaic > :nth-child(3) img {
+    object-position: 45% 25%;
   }
 
   /* Scroll-driven parallax, only where supported and motion is welcome */
