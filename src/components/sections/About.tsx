@@ -3,7 +3,7 @@ import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { about } from "@/content/site";
 
-const speedClass = { a: "parallax-a", b: "parallax-b", c: "parallax-c" } as const;
+const speedClass = { a: "parallax-a", b: "parallax-b", c: "parallax-c", none: "" } as const;
 
 export function About() {
   return (

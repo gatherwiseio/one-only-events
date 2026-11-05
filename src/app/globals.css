@@ -258,7 +258,8 @@
   }
   .about-mosaic > :nth-child(2) {
     left: 52%;
-    top: 0;
+    /* level with the top of the "Meet Sunny" capitals, which sit ~0.31em below the title's box */
+    top: calc(var(--text-title) * 0.31);
     width: 48%;
     height: 26%;
   }

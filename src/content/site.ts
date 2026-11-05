@@ -61,7 +61,7 @@ export const hero = {
   ] satisfies Slide[],
 };
 
-export type AboutPhoto = { src: string; alt: string; speed: "a" | "b" | "c" };
+export type AboutPhoto = { src: string; alt: string; speed: "a" | "b" | "c" | "none" };
 
 export const about = {
   title: "Meet Sunny",
@@ -76,7 +76,7 @@ export const about = {
     {
       src: "/images/sunny/sunny-light-painting-close.jpg",
       alt: "Sunny laughing as she snaps a photo on her phone beneath ribbons of light at a nighttime celebration",
-      speed: "a",
+      speed: "none",
     },
     {
       src: "/images/sunny/sunny-styling-table.jpg",
