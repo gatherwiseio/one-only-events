@@ -204,19 +204,20 @@ export const packages = {
   ] satisfies Package[],
 };
 
+export type ProcessStep = { title: string; body: string; icon: "talk" | "plan" | "together" | "celebrate" };
+
+// Rewritten 2026-11-05 from Sunny's four steps for clarity and even length (17–19 words each);
+// same meaning, nothing added.
 export const process = {
-  title: "Our planning process",
-  label: "How it works",
-  image: {
-    src: "/images/weddings/bubble-send-off.jpg",
-    alt: "A newlywed couple kisses as guests send them off with bubbles",
-  },
+  title: "How it works",
+  label: "Our planning process",
+  replayLabel: "Replay",
   steps: [
-    { title: "We get to know you", body: "We begin with your story, priorities, preferences, concerns, and vision for the celebration." },
-    { title: "We build the foundation", body: "We establish the budget, planning priorities, vendor needs, overall direction, and next steps." },
-    { title: "We bring everything together", body: "We guide decisions, track details, review logistics, communicate with vendors, and create a clear wedding-day plan." },
-    { title: "You celebrate", body: "On the wedding day, our team manages the setup, vendors, timeline, transitions, and unexpected moments so you can be fully present." },
-  ],
+    { icon: "talk", title: "We get to know you", body: "We start with your story: what matters most to you, what you picture, and any worries on your mind." },
+    { icon: "plan", title: "We build the foundation", body: "Together we set your budget, priorities and direction, then map out your vendor needs and next steps." },
+    { icon: "together", title: "We bring everything together", body: "We guide each decision, track every detail and work with your vendors to shape a clear wedding-day plan." },
+    { icon: "celebrate", title: "You celebrate", body: "On the day, our team runs the setup, vendors, timeline and any surprises, so you can simply be present." },
+  ] satisfies ProcessStep[],
 };
 
 export type Review = { quote: string; name: string; source: string; date: string };

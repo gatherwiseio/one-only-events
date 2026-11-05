@@ -122,6 +122,8 @@
 :root {
   --hero-h: clamp(36rem, 92svh, 55rem);
   --dialog-w: min(35rem, calc(100vw - 2rem));
+  --stop-size: 3.5rem;
+  --timeline-gap: 2.5rem;
   --dialog-max-h: calc(100svh - 2rem);
   --wordmark-w: clamp(9.5rem, 8rem + 4vw, 12.5rem);
   --wordmark-ratio: 7960 / 890;
@@ -212,6 +214,39 @@
     --section-fg: var(--color-ink);
     --section-label: var(--color-accent);
     --section-muted: var(--color-ink-muted);
+  }
+
+  /* How it works: a timeline of stops. Each stop draws a connector to the next one; the
+     connector's fill grows from 0 to 1 via --fill (set by ProcessTimeline). Vertical on phones,
+     horizontal from md up. */
+  .timeline-connector {
+    position: absolute;
+    left: calc(var(--stop-size) / 2 - 1px);
+    top: var(--stop-size);
+    bottom: calc(var(--timeline-gap) * -1);
+    width: 2px;
+    background: var(--color-line);
+  }
+  .timeline-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--color-primary);
+    transform-origin: top;
+    transform: scaleY(var(--fill, 0));
+  }
+  @media (width >= 48rem) {
+    .timeline-connector {
+      left: var(--stop-size);
+      right: calc(var(--timeline-gap) * -1);
+      top: calc(var(--stop-size) / 2 - 1px);
+      bottom: auto;
+      width: auto;
+      height: 2px;
+    }
+    .timeline-fill {
+      transform-origin: left;
+      transform: scaleX(var(--fill, 0));
+    }
   }
 
   /* Hero photos whose subject sits high in a tall frame (keeps faces in a wide crop) */
