@@ -172,6 +172,10 @@
     color: var(--color-ink);
     font-family: var(--font-body);
     accent-color: var(--color-accent);
+    caret-color: var(--color-primary);
+  }
+  html {
+    scrollbar-color: var(--color-accent-soft) var(--color-surface);
   }
   h1,
   h2,
@@ -464,6 +468,12 @@
     to {
       transform: translateY(calc(var(--parallax-shift) * -1));
     }
+  }
+
+  /* Loops the hero runs stop while it's off screen (Hero sets data-offscreen) */
+  [data-offscreen] .animate-scroll-cue,
+  [data-offscreen] .animate-hero-zoom {
+    animation-play-state: paused;
   }
 
   @media (prefers-reduced-motion: reduce) {

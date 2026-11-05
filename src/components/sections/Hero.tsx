@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "@/components/useReducedMotion";
 import { hero } from "@/content/site";
 
@@ -15,6 +15,17 @@ export function Hero() {
   // they don't compete with it (it's the page's largest paint).
   const [rest, setRest] = useState(false);
   const reducedMotion = useReducedMotion();
+  // The slideshow and scroll cue pause while the hero is off screen
+  const root = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const el = root.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const show = () => setRest(true);
@@ -24,14 +35,16 @@ export function Hero() {
   }, []);
 
   useEffect(() => {
-    if (reducedMotion || !rest) return;
+    if (reducedMotion || !rest || !visible) return;
     const timer = window.setInterval(() => setIndex((i) => (i + 1) % count), SLIDE_MS);
     return () => window.clearInterval(timer);
-  }, [reducedMotion, rest, count]);
+  }, [reducedMotion, rest, visible, count]);
 
   return (
     <section
+      ref={root}
       id="hero"
+      data-offscreen={visible ? undefined : ""}
       aria-label="Weddings planned by One & Only Events"
       className="relative flex h-(--hero-h) flex-col justify-end overflow-hidden bg-photo-fallback text-on-photo"
     >
