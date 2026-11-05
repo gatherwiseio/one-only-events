@@ -194,3 +194,8 @@ Downloaded originals stay outside the repo; optimized copies in `public/images/`
   - **CTA photo framing:** the photo is framed low (`object-position: 50% 85%`), so the arch and Mokoliʻi show instead of the palm tops.
   - **Gradient and text:** the side gradient is lighter (50% → 30% → clear by 60%). The text column is narrower (`max-w-md`), so it stops before the arch, and the label is white so it stays readable (average contrast about 7:1 against the photo).
   - **How it works:** once the sequence has started, it pauses wherever it is while the timeline is off screen and resumes when it's back, so the confetti never fires out of sight.
+- **Kind words and CTA, 2026-11-05 (later):**
+  - **Kind words** is on the same beige as Recent weddings (`bg-surface-alt`).
+  - **CTA label:** "Weddings throughout the islands" is light gold again.
+  - **CTA gradient:** the side gradient is a little darker behind the text (62% → 42% → clear by 62%). Measured contrast: title and body about 8.7:1, gold label 4.7:1.
+  - **CTA photo:** it runs 12% wider than the section from the left edge, so the arch and Mokoliʻi sit about 55% across, centered in the open part of the photo.

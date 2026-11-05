@@ -42,7 +42,7 @@ export function Reviews() {
   };
 
   return (
-    <section id="reviews" aria-labelledby="reviews-title" className="scroll-mt-20 bg-surface px-gutter py-section">
+    <section id="reviews" aria-labelledby="reviews-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section">
       <SectionHeading id="reviews-title" title={reviews.title} label={reviews.label} />
       <div
         ref={card}
