@@ -27,7 +27,9 @@
   --color-brand: #3d6b1f;
   --color-pink: #e85fa3;
   --color-pink-deep: #c2387f;
-  --color-pink-darker: #a32b69;
+  /* Primary (main call-to-action buttons): the brand pink, deep enough for white text (5:1) */
+  --color-primary: #c2387f;
+  --color-primary-hover: #a32b69;
 
   /* Fonts */
   --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
@@ -120,6 +122,7 @@
 :root {
   --hero-h: clamp(36rem, 92svh, 55rem);
   --dialog-w: min(35rem, calc(100vw - 2rem));
+  --tone-switch: 0.4s;
   --dialog-max-h: calc(100svh - 2rem);
   --wordmark-w: clamp(9.5rem, 8rem + 4vw, 12.5rem);
   --wordmark-ratio: 7960 / 890;
@@ -198,6 +201,19 @@
     --section-fg: var(--color-on-panel);
     --section-label: var(--color-accent-on-dark);
     --section-muted: var(--color-on-panel-muted);
+  }
+  .weddings-tone.is-light {
+    --section-bg: var(--color-surface-alt);
+    --section-fg: var(--color-ink);
+    --section-label: var(--color-accent-label);
+    --section-muted: var(--color-ink-muted);
+  }
+  /* A quick, even switch between the two, so text never sits half-faded */
+  .weddings-tone,
+  .weddings-tone :is(h2, p, a, span) {
+    transition-property: color, background-color;
+    transition-duration: var(--tone-switch);
+    transition-timing-function: ease;
   }
 
   /* Hero photos whose subject sits high in a tall frame (keeps faces in a wide crop) */

@@ -14,11 +14,10 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const frameShift = { a: 15, b: 40, c: 70 } as const;
 const photoDrift = { a: 3, b: 5, c: 7 } as const;
 
-const token = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-
 /**
- * Recent weddings mosaic: photos sit in place with gentle parallax, and the section shifts from
- * sand to near-black as the photos scroll into view. Reduced motion: still photos, dark section.
+ * Recent weddings mosaic: photos sit in place with gentle parallax, and the section switches
+ * quickly from sand to near-black once the photos come into view (and back when scrolling up).
+ * Reduced motion: still photos, dark section.
  */
 export function WeddingsMosaic({ photos }: { photos: MosaicPhoto[] }) {
   const root = useRef<HTMLDivElement>(null);
@@ -34,23 +33,13 @@ export function WeddingsMosaic({ photos }: { photos: MosaicPhoto[] }) {
 
           const section = root.current?.closest("section");
           if (section) {
-            gsap.fromTo(
-              section,
-              {
-                "--section-bg": token("--color-surface-alt"),
-                "--section-fg": token("--color-ink"),
-                "--section-label": token("--color-accent-label"),
-                "--section-muted": token("--color-ink-muted"),
-              },
-              {
-                "--section-bg": token("--color-gallery"),
-                "--section-fg": token("--color-on-panel"),
-                "--section-label": token("--color-accent-on-dark"),
-                "--section-muted": token("--color-on-panel-muted"),
-                ease: "none",
-                scrollTrigger: { trigger: root.current, start: "top 85%", end: "top 30%", scrub: true },
-              },
-            );
+            section.classList.add("is-light");
+            ScrollTrigger.create({
+              trigger: root.current,
+              start: "top 70%",
+              onEnter: () => section.classList.remove("is-light"),
+              onLeaveBack: () => section.classList.add("is-light"),
+            });
           }
 
           gsap.utils.toArray<HTMLElement>("[data-tile]").forEach((tile) => {
@@ -71,6 +60,8 @@ export function WeddingsMosaic({ photos }: { photos: MosaicPhoto[] }) {
               );
             }
           });
+
+          return () => section?.classList.remove("is-light");
         },
       );
       return () => mm.revert();

@@ -6,14 +6,14 @@ type Tone = "light" | "dark" | "pink" | "current";
 
 const base = "font-display uppercase text-label transition-colors duration-300 ease-soft";
 
-const primary = "inline-flex items-center justify-center min-h-button px-8 bg-accent font-medium text-on-photo hover:bg-accent-deep";
+const primary = "inline-flex items-center justify-center min-h-button px-8 bg-primary font-medium text-on-photo hover:bg-primary-hover";
 const secondary = "inline-flex items-center justify-center min-h-tap px-5 border border-accent font-medium text-accent hover:bg-accent hover:text-on-photo";
 
 const styles: Record<Variant, Record<Tone, string>> = {
   primary: {
     light: primary,
     dark: primary,
-    pink: "inline-flex items-center justify-center min-h-button px-8 bg-pink-deep font-medium text-on-photo hover:bg-pink-darker",
+    pink: primary,
     current: primary,
   },
   secondary: {
