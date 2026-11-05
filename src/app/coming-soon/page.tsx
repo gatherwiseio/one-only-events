@@ -17,8 +17,8 @@ export default function ComingSoon() {
       <Wordmark tone="dark" />
       <div className="my-auto flex max-w-copy flex-col gap-5 py-16">
         <p className="font-display text-label font-medium uppercase">{comingSoon.label}</p>
-        <h1 className="font-display text-display-xl font-light uppercase">{comingSoon.title}</h1>
-        <p className="font-display text-card-title font-normal uppercase">{comingSoon.date}</p>
+        <h1 className="font-display text-display-xl font-normal uppercase">{comingSoon.title}</h1>
+        <p className="font-display text-card-title font-medium uppercase">{comingSoon.date}</p>
         <p className="text-body">{comingSoon.body}</p>
         <Button href={business.instagram} external tone="dark" className="self-start">
           Instagram {business.instagramHandle}

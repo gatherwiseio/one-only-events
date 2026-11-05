@@ -52,7 +52,7 @@ export function Hero() {
         </a>
         <div className="flex flex-col gap-3">
           <p className="font-display text-label font-medium uppercase">{hero.label}</p>
-          <h1 className="font-display text-hero font-light uppercase">{hero.title}</h1>
+          <h1 className="font-display text-hero font-normal uppercase">{hero.title}</h1>
         </div>
       </div>
     </section>

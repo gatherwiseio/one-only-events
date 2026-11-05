@@ -1,5 +1,6 @@
 "use client";
 
+import { X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/Button";
@@ -8,8 +9,9 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { packages, servicesPage } from "@/content/site";
 
 /**
- * Service packages: an editorial snapshot of each package (photo, name, price, one line), with
- * "What's included" opening a pop-up of the full list and a pink "Learn more" to the Services page.
+ * Service packages: one card per package (clean photo, who it suits, name, price, a short
+ * description), a full-width pink outline "Learn more" and a gold "What's included" link that
+ * opens a pop-up with the full list.
  */
 export function Packages() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -28,35 +30,37 @@ export function Packages() {
   return (
     <section id="packages" aria-labelledby="packages-title" className="scroll-mt-20 bg-surface px-gutter py-section">
       <SectionHeading id="packages-title" title={packages.title} label={packages.label} />
-      <div className="mx-auto mt-group grid max-w-content grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-group grid max-w-content grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {packages.items.map((pkg, i) => (
-          <article key={pkg.id} id={pkg.id} aria-labelledby={`${pkg.id}-name`} className="group row-span-5 grid grid-rows-subgrid gap-y-4">
-            <div className="relative mb-2 aspect-4/5 overflow-hidden">
-              <Image
-                src={pkg.image.src}
-                alt={pkg.image.alt}
-                fill
-                sizes="(width >= 64rem) 30vw, (width >= 48rem) 45vw, 100vw"
-                className="object-cover transition-transform duration-700 ease-soft group-hover:scale-103"
-              />
+          <article
+            key={pkg.id}
+            id={pkg.id}
+            aria-labelledby={`${pkg.id}-name`}
+            className="row-span-7 grid grid-rows-subgrid gap-y-0 border border-line bg-card"
+          >
+            <div className="relative aspect-4/3 overflow-hidden">
+              <Image src={pkg.image.src} alt={pkg.image.alt} fill sizes="(width >= 64rem) 30vw, (width >= 48rem) 45vw, 100vw" className="object-cover" />
             </div>
-            <h3 id={`${pkg.id}-name`} className="font-display text-card-title font-normal uppercase">
+            <p className="px-6 pt-6 font-display text-label font-medium uppercase text-accent-label sm:px-7">{pkg.tag}</p>
+            <h3 id={`${pkg.id}-name`} className="px-6 pt-2 font-display text-card-title font-medium uppercase sm:px-7">
               {pkg.name}
             </h3>
-            <p className="font-display text-price font-medium text-accent">{pkg.price}</p>
-            <p className="text-body">{pkg.description}</p>
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 self-end pt-2">
+            <p className="px-6 pt-1 font-display text-price font-medium text-accent sm:px-7">{pkg.price}</p>
+            <p className="px-6 pt-4 text-body-sm sm:px-7">{pkg.description}</p>
+            <div className="px-6 pt-6 sm:px-7">
+              <Button href={`${servicesPage.href}#${pkg.id}`} live={servicesPage.live} variant="secondary" tone="pink" className="w-full">
+                {packages.learnMoreLabel}
+              </Button>
+            </div>
+            <div className="px-6 pt-2 pb-5 sm:px-7">
               <button
                 type="button"
                 onClick={() => setActive(i)}
                 aria-haspopup="dialog"
-                className="py-3 font-display text-label font-semibold uppercase text-accent underline decoration-1 underline-offset-6 transition-colors duration-300 ease-soft hover:text-accent-deep"
+                className="py-3 font-display text-label font-semibold uppercase text-accent-label underline decoration-1 underline-offset-6 transition-colors duration-300 ease-soft hover:text-accent"
               >
                 {packages.includedLabel}
               </button>
-              <Button href={`${servicesPage.href}#${pkg.id}`} live={servicesPage.live} variant="primary" tone="pink">
-                {packages.learnMoreLabel}
-              </Button>
             </div>
           </article>
         ))}
@@ -73,31 +77,27 @@ export function Packages() {
         onClick={(event) => {
           if (event.target === event.currentTarget) close();
         }}
-        className="m-auto max-h-(--dialog-max-h) w-(--dialog-w) overflow-y-auto overscroll-contain bg-surface p-0 text-ink backdrop:bg-ink/60"
+        className="m-auto max-h-(--dialog-max-h) w-(--dialog-w) overflow-y-auto overscroll-contain bg-surface p-0 font-display text-ink backdrop:bg-ink/60"
       >
         {item ? (
           <div className="flex flex-col">
-            <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-line bg-surface px-6 py-5">
-              <div className="flex flex-col gap-1">
-                <h3 id="package-dialog-title" className="font-display text-card-title font-normal uppercase">
+            <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-line bg-surface py-4 pr-3 pl-6">
+              <div className="flex flex-col gap-1 pt-1">
+                <h3 id="package-dialog-title" className="text-card-title font-medium uppercase">
                   {item.name}
                 </h3>
-                <p className="font-display text-price font-medium text-accent">{item.priceDetail ?? item.price}</p>
+                <p className="text-price font-medium text-accent">{item.priceDetail ?? item.price}</p>
               </div>
-              <button
-                type="button"
-                onClick={close}
-                className="inline-flex min-h-tap flex-none items-center border border-ink px-4 font-display text-label font-medium uppercase text-ink"
-              >
-                Close
+              <button type="button" onClick={close} aria-label="Close" className="inline-flex size-tap flex-none items-center justify-center text-ink hover:text-accent">
+                <X size={22} strokeWidth={1.5} aria-hidden="true" />
               </button>
             </div>
             <div className="flex flex-col gap-5 px-6 py-6">
-              <p className="text-body-sm italic text-ink-muted">{item.bestFor}</p>
+              <p className="text-body-sm font-medium text-ink-muted">{item.bestFor}</p>
               <ul className="flex flex-col gap-3">
                 {item.inclusions.map((inclusion) => (
-                  <li key={inclusion} className="flex gap-3 text-body">
-                    <span className="mt-3 size-1.5 flex-none rounded-full bg-accent-label" aria-hidden="true" />
+                  <li key={inclusion} className="flex gap-3 text-body-sm">
+                    <span className="mt-2.5 size-1.5 flex-none rounded-full bg-accent-label" aria-hidden="true" />
                     <span>{inclusion}</span>
                   </li>
                 ))}

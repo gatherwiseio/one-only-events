@@ -11,7 +11,7 @@ export function Reviews() {
           <figure key={review.name} className="row-span-2 grid grid-rows-subgrid gap-y-8 border border-line bg-card px-6 py-10 sm:px-8">
             <blockquote className="text-quote">“{review.quote}”</blockquote>
             <figcaption className="flex flex-col gap-1 self-end border-t border-line pt-5">
-              <span className="font-display text-card-title font-normal uppercase">{review.name}</span>
+              <span className="font-display text-card-title font-medium uppercase">{review.name}</span>
               <span className="font-display text-label font-medium uppercase text-accent">
                 {review.source} · {review.date}
               </span>

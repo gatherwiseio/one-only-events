@@ -19,7 +19,7 @@ const styles: Record<Variant, Record<Tone, string>> = {
   secondary: {
     light: secondary,
     dark: "inline-flex items-center justify-center min-h-tap px-5 border border-on-photo font-medium text-on-photo hover:bg-on-photo hover:text-ink",
-    pink: secondary,
+    pink: "inline-flex items-center justify-center min-h-button px-6 border border-primary font-medium text-primary hover:bg-primary hover:text-on-photo",
     current: secondary,
   },
   link: {

@@ -26,7 +26,7 @@ export function SectionHeading({ id, title, label, align = "center", tone = "lig
             : "text-accent-label";
   return (
     <div className={`flex flex-col gap-4 ${alignment}`}>
-      <Tag id={id} className={`font-display text-title font-light uppercase ${titleTone[tone]}`}>
+      <Tag id={id} className={`font-display text-title font-normal uppercase ${titleTone[tone]}`}>
         {title}
       </Tag>
       {label ? <p className={`font-display text-label font-medium uppercase ${labelClass}`}>{label}</p> : null}

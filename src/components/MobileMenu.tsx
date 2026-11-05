@@ -78,7 +78,7 @@ export function MobileMenu({ tone }: { tone: "light" | "dark" }) {
                       <NavLink
                         page={page}
                         onClick={() => setOpen(false)}
-                        className="flex min-h-tap items-center py-4 font-display text-title font-light uppercase text-ink"
+                        className="flex min-h-tap items-center py-4 font-display text-title font-normal uppercase text-ink"
                       />
                     </li>
                   ))}

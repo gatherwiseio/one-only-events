@@ -51,7 +51,7 @@ export function Process() {
       const stops = gsap.utils.toArray<HTMLElement>("[data-stop]");
       if (!fill || !rail) return;
 
-      // How far along the rail (0–1) each stop's centre sits, in whichever direction it runs
+      // How far along the rail (0–1) each stop's center sits, in whichever direction it runs
       const stopAt = (i: number) => {
         const r = rail.getBoundingClientRect();
         const s = stops[i].getBoundingClientRect();
@@ -114,7 +114,7 @@ export function Process() {
                   >
                     <Icon size={22} strokeWidth={1.5} />
                   </span>
-                  <h3 className={`stop-title font-display text-card-title font-normal uppercase transition-colors duration-500 ease-soft ${on ? "text-ink" : "text-ink-faint"}`}>
+                  <h3 className={`stop-title font-display text-card-title font-medium uppercase transition-colors duration-500 ease-soft ${on ? "text-ink" : "text-ink-faint"}`}>
                     {step.title}
                   </h3>
                   <p className={`stop-body text-body-sm transition-colors duration-500 ease-soft ${on ? "text-ink" : "text-ink-faint"}`}>{step.body}</p>
