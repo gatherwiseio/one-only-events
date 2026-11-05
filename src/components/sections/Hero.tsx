@@ -11,13 +11,23 @@ export function Hero() {
   const slides = hero.slides;
   const count = slides.length;
   const [index, setIndex] = useState(0);
+  // Only the first photo loads with the page; the rest join once it has finished loading, so
+  // they don't compete with it (it's the page's largest paint).
+  const [rest, setRest] = useState(false);
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    if (reducedMotion) return;
+    const show = () => setRest(true);
+    if (document.readyState === "complete") show();
+    else window.addEventListener("load", show, { once: true });
+    return () => window.removeEventListener("load", show);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion || !rest) return;
     const timer = window.setInterval(() => setIndex((i) => (i + 1) % count), SLIDE_MS);
     return () => window.clearInterval(timer);
-  }, [reducedMotion, count]);
+  }, [reducedMotion, rest, count]);
 
   return (
     <section
@@ -25,7 +35,7 @@ export function Hero() {
       aria-label="Weddings planned by One & Only Events"
       className="relative flex h-(--hero-h) flex-col justify-end overflow-hidden bg-photo-fallback text-on-photo"
     >
-      {slides.map((slide, i) => (
+      {slides.slice(0, rest ? count : 1).map((slide, i) => (
         <div
           key={slide.src}
           className={`slide-fade absolute inset-0 ${i === index ? "opacity-100" : "opacity-0"}`}

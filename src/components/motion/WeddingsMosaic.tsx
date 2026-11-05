@@ -60,7 +60,7 @@ export function WeddingsMosaic({ photos }: { photos: MosaicPhoto[] }) {
             src={photo.src}
             alt={photo.alt}
             fill
-            sizes={i === 0 || i === 6 ? "(width >= 48rem) 60vw, 100vw" : "(width >= 48rem) 35vw, 50vw"}
+            sizes={i === 0 || i === 6 ? "(width >= 48rem) 60vw, 100vw" : i === 5 ? "(width >= 48rem) 35vw, 100vw" : "(width >= 48rem) 35vw, 50vw"}
             className="object-cover"
           />
         </div>

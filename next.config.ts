@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   // No Next.js badge in local previews; build and runtime errors still show
   devIndicators: false,
   images: {
+    formats: ["image/avif", "image/webp"],
     qualities: [75],
   },
   partialPrefetching: true,
