@@ -62,14 +62,18 @@ export const hero = {
 
 export const about = {
   title: "Meet Sunny",
-  label: "Founder of One & Only Events",
+  label: "Founder of One\u00a0&\u00a0Only\u00a0Events",
   image: {
     src: "/images/sunny/sunny-portrait.jpg",
     alt: "Sunny Cho, founder of One & Only Events, smiling with her arms crossed",
   },
+  // Rewritten 2026-11-05 from Sunny's own homepage copy: the intro ("Your Day, Your Story,
+  // Your Way") and her four "Why Choose Us" points. No new facts added.
+  lead: "A wedding should feel like the two of you. Not someone else's Pinterest board, and not a template with new names on it.",
   paragraphs: [
-    "One & Only Events plans and designs unforgettable Hawaiʻi weddings, each one as one-of-a-kind as the couple behind it. We believe your wedding should feel like you — not a copy-paste version of someone else's Pinterest board.",
-    "Sunny's background has been shaped by life in Tokyo, Seoul, London, and Hawaiʻi, and a background in finance and accounting gives her a detail-oriented approach to budgets, contracts, logistics, and organization. Her creative eye and genuine care ensure that the planning never feels cold or formulaic.",
+    "Sunny has made a home in Tokyo, Seoul, London and now Hawaiʻi. That range shapes how she plans: multicultural and blended-family weddings are second nature to her, and she gives each tradition, and each family, its rightful place in the day.",
+    "Her background is in finance and accounting, so budgets add up and contracts get read line by line. She knows the venue rules, the island weather and what guests flying in will need, and she settles the small things before they become expensive ones.",
+    "None of that shows on the day itself. What your guests feel is a celebration that's personal, joyful and completely yours, and again and again, they tell us it's the best wedding they've been to.",
   ],
   link: { ...aboutPage, label: "More about Sunny" },
 };

@@ -11,7 +11,8 @@ export function About() {
           <Image src={about.image.src} alt={about.image.alt} fill sizes="(width >= 48rem) 35vw, 90vw" className="object-cover" />
         </div>
         <div className="flex flex-col gap-6 md:col-span-7 lg:col-span-6 lg:col-start-7">
-          <SectionHeading id="about-title" title={about.title} label={about.label} align="start" />
+          <SectionHeading id="about-title" title={about.title} label={about.label} labelColor="pink" align="start" />
+          <p className="text-quote">{about.lead}</p>
           {about.paragraphs.map((paragraph) => (
             <p key={paragraph} className="text-body">
               {paragraph}

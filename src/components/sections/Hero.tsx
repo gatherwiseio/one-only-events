@@ -43,20 +43,18 @@ export function Hero() {
       ))}
       <div className="absolute inset-0 bg-(image:--scrim-hero)" aria-hidden="true" />
 
-      <div className="relative flex max-w-hero-copy flex-col gap-3 px-gutter pb-24 md:pb-12">
-        <p className="font-display text-label font-medium uppercase">{hero.label}</p>
-        <h1 className="font-display text-hero font-light uppercase">{hero.title}</h1>
+      <div className="relative flex max-w-hero-copy gap-4 px-gutter pb-12 md:gap-6 md:pb-14">
+        <a href={hero.scrollCue.href} className="-ml-3 flex w-6 flex-none justify-center">
+          <span className="sr-only">{hero.scrollCue.label}</span>
+          <span className="relative h-full w-px overflow-hidden bg-on-photo/35" aria-hidden="true">
+            <span className="absolute inset-x-0 top-0 h-1/3 animate-scroll-cue bg-on-photo" />
+          </span>
+        </a>
+        <div className="flex flex-col gap-3">
+          <p className="font-display text-label font-medium uppercase">{hero.label}</p>
+          <h1 className="font-display text-hero font-light uppercase">{hero.title}</h1>
+        </div>
       </div>
-
-      <a
-        href={hero.scrollCue.href}
-        className="absolute bottom-6 left-1/2 flex h-16 w-tap -translate-x-1/2 justify-center md:bottom-12 md:left-auto md:right-gutter md:translate-x-0"
-      >
-        <span className="sr-only">{hero.scrollCue.label}</span>
-        <span className="relative h-full w-px overflow-hidden bg-on-photo/35" aria-hidden="true">
-          <span className="absolute inset-x-0 top-0 h-1/3 animate-scroll-cue bg-on-photo" />
-        </span>
-      </a>
     </section>
   );
 }

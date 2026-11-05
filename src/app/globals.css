@@ -22,6 +22,7 @@
   --color-accent-on-dark: #cdbe94;
   --color-photo-fallback: #4f4d4a;
   --color-brand: #3d6b1f;
+  --color-pink: #e85fa3;
 
   /* Fonts */
   --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
@@ -70,7 +71,7 @@
   --container-content: 75rem;
   --container-wide: 77.5rem;
   --container-copy: 37.5rem;
-  --container-hero-copy: 35rem;
+  --container-hero-copy: 38rem;
   --container-dialog: 35rem;
 
   /* Breakpoints */
@@ -80,6 +81,16 @@
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --animate-hero-zoom: hero-zoom 14s var(--ease-soft) both;
   --animate-scroll-cue: scroll-cue 2.4s var(--ease-soft) infinite;
+  --animate-header-in: header-in 0.45s var(--ease-soft) both;
+
+  @keyframes header-in {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 
   @keyframes scroll-cue {
     0% {
@@ -254,7 +265,8 @@
       transition: none;
     }
     .animate-hero-zoom,
-    .animate-scroll-cue {
+    .animate-scroll-cue,
+    .animate-header-in {
       animation: none;
     }
   }

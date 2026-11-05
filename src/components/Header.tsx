@@ -1,41 +1,37 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { MobileMenu } from "@/components/MobileMenu";
 import { NavLink } from "@/components/NavLink";
 import { pages } from "@/content/site";
 
 /**
- * Sticky site header. With `overlayId`, it sits clear and white over that element (the hero)
- * and turns solid with black type once the element has scrolled out from under it.
+ * Site header. With `overlayId`, it sits clear and white over that element (the hero) and
+ * scrolls away with it; once the element has fully left the screen, the header slides back
+ * in from the top, pinned, solid and black. Without `overlayId` it's always pinned.
  */
 export function Header({ overlayId }: { overlayId?: string }) {
-  const ref = useRef<HTMLElement>(null);
-  const [overHero, setOverHero] = useState(Boolean(overlayId));
+  const [pinned, setPinned] = useState(!overlayId);
 
   useEffect(() => {
     const target = overlayId ? document.getElementById(overlayId) : null;
-    const header = ref.current;
-    if (!target || !header) return;
-    const observer = new IntersectionObserver(([entry]) => setOverHero(entry.isIntersecting), {
-      rootMargin: `-${header.offsetHeight}px 0px 0px 0px`,
-    });
+    if (!target) return;
+    const observer = new IntersectionObserver(([entry]) => setPinned(!entry.isIntersecting));
     observer.observe(target);
     return () => observer.disconnect();
   }, [overlayId]);
 
-  const solid = !overHero;
-
   return (
     <header
-      ref={ref}
-      className={`fixed inset-x-0 top-0 z-30 px-gutter py-2 transition-colors duration-300 ease-soft md:py-3 ${
-        solid ? "border-b border-line bg-surface/95 text-ink backdrop-blur-sm" : "border-b border-transparent text-on-photo"
+      className={`inset-x-0 top-0 z-30 px-gutter py-2 md:py-3 ${
+        pinned
+          ? `fixed border-b border-line bg-surface/95 text-ink backdrop-blur-sm ${overlayId ? "animate-header-in" : ""}`
+          : "absolute text-on-photo"
       }`}
     >
       <div className="flex items-center justify-between gap-6">
-        <Logo tone={solid ? "ink" : "dark"} />
+        <Logo tone={pinned ? "ink" : "dark"} />
         <nav aria-label="Main" className="hidden md:block">
           <ul className="flex gap-8 font-display text-label font-medium uppercase">
             {pages.map((page) => (
@@ -45,7 +41,7 @@ export function Header({ overlayId }: { overlayId?: string }) {
             ))}
           </ul>
         </nav>
-        <MobileMenu tone={solid ? "light" : "dark"} />
+        <MobileMenu tone={pinned ? "light" : "dark"} />
       </div>
     </header>
   );
