@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-card px-gutter py-3">
       <div className="mx-auto flex max-w-content items-center justify-between gap-6">
         <p className="font-display text-label font-medium uppercase text-ink-muted">
-          © {business.copyrightYear} {business.name}
+          © {business.copyrightYear} <span translate="no">{business.name}</span>
         </p>
         <a
           href={business.instagram}

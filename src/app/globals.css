@@ -190,6 +190,20 @@
     background: var(--color-accent);
     color: var(--color-on-photo);
   }
+  /* No double-tap zoom delay on taps, and no grey flash on iOS */
+  a,
+  button,
+  summary,
+  [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Stop the page rubber-banding past its ends on mouse and trackpad; touch keeps pull-to-refresh */
+  @media (pointer: fine) {
+    html {
+      overscroll-behavior: none;
+    }
+  }
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;

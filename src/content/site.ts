@@ -1,5 +1,5 @@
 // All copy and data for the One & Only Events site.
-// Copy is Sunny's own wording from oneandonly.events and her 2026 packages PDF
+// Copy is Sunny’s own wording from oneandonly.events and her 2026 packages PDF
 // (see content/current-site.md and content/reviews.md); only typos are fixed.
 
 export type PageLink = { label: string; href: string; live: boolean };
@@ -17,7 +17,7 @@ export const business = {
   copyrightYear: 2026,
 };
 
-// `live: false` pages keep their look but aren't clickable until they're built.
+// `live: false` pages keep their look but aren’t clickable until they’re built.
 export const pages: PageLink[] = [
   { label: "About", href: "/about", live: false },
   { label: "Services", href: "/services", live: false },
@@ -83,13 +83,13 @@ export const about = {
       speed: "b",
     },
   ] satisfies AboutPhoto[],
-  // Rewritten 2026-11-05 from Sunny's own homepage copy: the intro ("Your Day, Your Story,
+  // Rewritten 2026-11-05 from Sunny’s own homepage copy: the intro ("Your Day, Your Story,
   // Your Way") and her four "Why Choose Us" points. No new facts added.
-  lead: "Your wedding should feel like the two of you, not like someone else's Pinterest\u00a0board.",
+  lead: "Your wedding should feel like the two of you, not like someone else’s Pinterest\u00a0board.",
   paragraphs: [
     "That belief is at the heart of One & Only Events. Sunny has lived in Tokyo, Seoul, London and now Hawaiʻi, and that wide view shapes how she plans. Different traditions, families and expectations all find their place, brought together with\u00a0care.",
     "She is also meticulous. A background in finance and accounting means your budget stays clear and your contracts get a careful read, while venue rules, island weather and guest travel are sorted long before they can become\u00a0problems.",
-    "On the day, none of that work shows. What you feel is a celebration that is relaxed, joyful and entirely yours, and your guests leave talking about it. Again and again, they tell us it was the best wedding they've been\u00a0to.",
+    "On the day, none of that work shows. What you feel is a celebration that is relaxed, joyful and entirely yours, and your guests leave talking about it. Again and again, they tell us it was the best wedding they’ve been\u00a0to.",
   ],
   link: { ...aboutPage, label: "More about Sunny" },
 };
@@ -136,9 +136,9 @@ const dayOfInclusions = [
 export const packages = {
   title: "Service packages",
   label: "As much or as little help as you need",
-  // Shown at the foot of each package's "What's included" pop-up
+  // Shown at the foot of each package’s "What’s included" pop-up
   note: "Investments are based on celebrations with up to 100 guests and a single location for both ceremony and reception. Pricing is tailored to your venue, guest count, and level of planning support.",
-  includedLabel: "What's included",
+  includedLabel: "What’s included",
   learnMoreLabel: "Learn more",
   items: [
     {
@@ -189,7 +189,7 @@ export const packages = {
       name: "Day of Coordination",
       price: "Starting at $2,500",
       priceDetail: "Indoor events from $2,500 · outdoor events from $4,500",
-      description: "You've done the planning. We make sure your wedding day runs smoothly, working behind the scenes so you can enjoy it.",
+      description: "You’ve done the planning. We make sure your wedding day runs smoothly, working behind the scenes so you can enjoy it.",
       bestFor: "For couples who have planned it all and want to relax on the day.",
       image: {
         src: "/images/packages/day-of-bridal-details.jpg",
@@ -206,7 +206,7 @@ export const packages = {
 
 export type ProcessStep = { title: string; body: string; icon: "talk" | "plan" | "together" | "celebrate" };
 
-// Rewritten 2026-11-05 from Sunny's four steps for clarity and even length (17–19 words each);
+// Rewritten 2026-11-05 from Sunny’s four steps for clarity and even length (17–19 words each);
 // same meaning, nothing added.
 export const process = {
   title: "How it works",
@@ -290,7 +290,7 @@ export const faq = {
     {
       question: "How much does a wedding planner in Hawaiʻi cost?",
       answer:
-        "Full planning starts at $7,500, partial planning at $6,000 and day-of coordination at $2,500. Your quote depends on your guest count, venue and how much help you'd like.",
+        "Full planning starts at $7,500, partial planning at $6,000 and day-of coordination at $2,500. Your quote depends on your guest count, venue and how much help you’d like.",
     },
     {
       question: "Do you plan destination weddings?",
@@ -298,9 +298,9 @@ export const faq = {
         "All the time. Many of our couples live on the mainland or abroad. We handle the island side, from vendors to hotel room blocks and guest shuttles, so you can plan from anywhere.",
     },
     {
-      question: "What's the difference between planning and coordination?",
+      question: "What’s the difference between planning and coordination?",
       answer:
-        "Planning starts early, with your budget, vendors, contracts and design. Coordination is for couples who've planned it themselves: we step in about two months out and run the day.",
+        "Planning starts early, with your budget, vendors, contracts and design. Coordination is for couples who’ve planned it themselves: we step in about two months out and run the day.",
     },
     {
       question: "Do you plan multicultural weddings?",
@@ -311,9 +311,9 @@ export const faq = {
 };
 
 export const cta = {
-  title: "Let's plan your one\u00a0& only day",
+  title: "Let’s plan your one\u00a0& only day",
   label: "Weddings throughout the islands",
-  body: "Tell us about the two of you and the celebration you're dreaming of. We'll take it from there, together.",
+  body: "Tell us about the two of you and the celebration you’re dreaming of. We’ll take it from there, together.",
   image: {
     src: "/images/cta/arch-mokolii-palms.jpg",
     alt: "A round floral arch at the end of a palm-lined ceremony aisle, framing Mokoliʻi and the ocean",

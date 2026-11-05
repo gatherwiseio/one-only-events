@@ -13,7 +13,7 @@ import { cta } from "@/content/site";
  */
 export function Cta() {
   return (
-    <section id="inquire" aria-labelledby="inquire-title" className="relative isolate overflow-hidden px-gutter py-20 text-on-photo md:py-28">
+    <section id="inquire" aria-labelledby="inquire-title" className="relative isolate scroll-mt-20 overflow-hidden px-gutter py-20 text-on-photo md:py-28">
       <div className="absolute inset-y-0 left-0 -z-20 w-[112%]">
         <Image src={cta.image.src} alt={cta.image.alt} fill sizes="112vw" className="object-cover object-[50%_85%]" />
       </div>
