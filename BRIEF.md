@@ -79,6 +79,10 @@ Helps prospective clients understand who Sunny is, what she does, what she offer
 - **Badges (WeddingWire):** Asian-owned, Woman-owned
 - **Reviews:** The Knot 61 reviews, WeddingWire 33 (4.9). 2026 five-star reviews in `content/reviews.md`.
 
+## Motion
+- **Level:** Subtle, plus a dark gallery section (being tried on branch `experiment/scroll-motion`)
+- **Notes:** Liked: smooth scrolling, gallery parallax ("moving pictures"), near-black Recent weddings background. Disliked: pinned scroll assembly, photos popping in, animated section titles.
+
 ## Homepage directions
 - **Sections compared:** Hero · Recent weddings · Service packages
 - **Claude Design canvas:** https://claude.ai/artifact/XmyW1DffVUPNQr2XSzTyiq
