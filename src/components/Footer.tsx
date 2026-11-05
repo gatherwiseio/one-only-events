@@ -1,45 +1,27 @@
-import { Logo } from "@/components/Logo";
-import { NavLink } from "@/components/NavLink";
-import { business, pages, reviews } from "@/content/site";
+import { business } from "@/content/site";
 
+/** One thin white stripe, as wide as the header: copyright on the left, Instagram on the right. */
 export function Footer() {
   return (
-    <footer className="bg-panel px-gutter pt-group pb-10 text-on-panel">
-      <div className="mx-auto flex max-w-content flex-col gap-10">
-        <div className="flex flex-wrap items-start justify-between gap-10">
-          <div className="flex max-w-copy flex-col gap-3">
-            <Logo tone="panel" />
-            <p className="text-body-sm text-on-panel-muted">
-              {business.tagline} Wedding planning and design throughout&nbsp;{business.place}.
-            </p>
-          </div>
-          <nav aria-label="Footer">
-            <ul className="grid grid-cols-2 gap-x-10 font-display text-label font-medium uppercase">
-              {pages.map((page) => (
-                <li key={page.href}>
-                  <NavLink page={page} className="inline-flex min-h-tap items-center text-on-panel" />
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <ul className="flex flex-col font-display text-label font-semibold uppercase">
-            <li>
-              <a href={business.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-tap items-center text-accent-on-dark underline underline-offset-6">
-                Instagram
-              </a>
-            </li>
-            {reviews.links.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-tap items-center text-accent-on-dark underline underline-offset-6">
-                  {link.label.replace("Read reviews on ", "")}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <p className="border-t border-on-panel/20 pt-6 font-display text-label font-medium uppercase text-on-panel-muted">
+    <footer className="bg-card px-gutter py-3">
+      <div className="flex items-center justify-between gap-6">
+        <p className="font-display text-label font-medium uppercase text-ink-muted">
           © {business.copyrightYear} {business.name}
         </p>
+        <a
+          href={business.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Instagram ${business.instagramHandle}`}
+          className="-mr-2.5 inline-flex size-tap flex-none items-center justify-center text-ink transition-colors duration-300 ease-soft hover:text-primary"
+        >
+          {/* lucide-react no longer ships brand icons, so the Instagram glyph is drawn here in its style */}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4.25" />
+            <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
       </div>
     </footer>
   );

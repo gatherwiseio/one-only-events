@@ -219,8 +219,8 @@ export const process = {
   replayLabel: "Replay",
   steps: [
     { icon: "talk", title: "We get to know you", body: "We start with your story: what matters most to you, what you picture, and any worries on your mind." },
-    { icon: "plan", title: "We build the foundation", body: "Together we set your budget, priorities and direction, then map out your vendor needs and next steps." },
-    { icon: "together", title: "We bring it all together", body: "We guide each decision, track every detail and work with your vendors to shape a clear wedding-day plan." },
+    { icon: "plan", title: "Build the foundation", body: "Together we set your budget, priorities and direction, then map out your vendor needs and next steps." },
+    { icon: "together", title: "Bring it all together", body: "We guide each decision, track every detail and work with your vendors to shape a clear wedding-day plan." },
     { icon: "celebrate", title: "You celebrate", body: "On the day, our team runs the setup, vendors, timeline and any surprises, so you can simply be present." },
   ] satisfies ProcessStep[],
 };

@@ -9,9 +9,9 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { packages, servicesPage } from "@/content/site";
 
 /**
- * Service packages: one card per package (clean photo, who it suits, name, price, a short
- * description), a full-width pink outline "Learn more" and a gold "What's included" link that
- * opens a pop-up with the full list.
+ * Service packages: one card per package (clean photo, name, price, then who it suits as a short
+ * lead into the description) and a centered gold "What's included" link that opens a pop-up with
+ * the full list and the pink "Learn more".
  */
 export function Packages() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -36,28 +36,23 @@ export function Packages() {
             key={pkg.id}
             id={pkg.id}
             aria-labelledby={`${pkg.id}-name`}
-            className="row-span-7 grid grid-rows-subgrid gap-y-0 border border-line bg-card"
+            className="row-span-6 grid grid-rows-subgrid gap-y-0 border border-line bg-card"
           >
             <div className="relative aspect-4/3 overflow-hidden">
               <Image src={pkg.image.src} alt={pkg.image.alt} fill sizes="(width >= 64rem) 30vw, (width >= 48rem) 45vw, 100vw" className="object-cover" />
             </div>
-            <p className="px-6 pt-6 font-display text-label font-medium uppercase text-accent-label sm:px-7">{pkg.tag}</p>
-            <h3 id={`${pkg.id}-name`} className="px-6 pt-2 font-display text-card-title font-medium uppercase sm:px-7">
+            <h3 id={`${pkg.id}-name`} className="px-6 pt-6 font-display text-card-title font-medium uppercase sm:px-7">
               {pkg.name}
             </h3>
             <p className="px-6 pt-1 font-display text-price font-medium text-accent sm:px-7">{pkg.price}</p>
-            <p className="px-6 pt-4 text-body-sm sm:px-7">{pkg.description}</p>
-            <div className="px-6 pt-6 sm:px-7">
-              <Button href={`${servicesPage.href}#${pkg.id}`} live={servicesPage.live} variant="secondary" tone="pink" className="w-full">
-                {packages.learnMoreLabel}
-              </Button>
-            </div>
-            <div className="px-6 pt-2 pb-5 sm:px-7">
+            <p className="px-6 pt-5 text-body-sm font-semibold sm:px-7">{pkg.tag}</p>
+            <p className="px-6 pt-1 text-body-sm text-ink-muted sm:px-7">{pkg.description}</p>
+            <div className="flex justify-center px-6 pt-4 pb-5 sm:px-7">
               <button
                 type="button"
                 onClick={() => setActive(i)}
                 aria-haspopup="dialog"
-                className="py-3 font-display text-label font-semibold uppercase text-accent-label underline decoration-1 underline-offset-6 transition-colors duration-300 ease-soft hover:text-accent"
+                className="link-sweep py-3 font-display text-label font-semibold uppercase text-accent-label"
               >
                 {packages.includedLabel}
               </button>

@@ -88,7 +88,7 @@ export function MobileMenu({ tone }: { tone: "light" | "dark" }) {
                 href={business.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto inline-block self-start py-3 pt-10 font-display text-label font-semibold uppercase text-accent underline underline-offset-6"
+                className="mt-auto inline-block self-start py-3 pt-10 font-display text-label font-semibold uppercase link-sweep text-accent"
               >
                 Instagram {business.instagramHandle}
               </a>

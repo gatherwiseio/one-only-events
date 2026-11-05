@@ -76,9 +76,10 @@ export function Process() {
         gsap.set(fill, { "--fill": 1 });
       });
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const tl = gsap.timeline({ paused: true });
+        // Always start from an empty line, so a replay never runs it backward from the end
+        const tl = gsap.timeline({ paused: true }).set(fill, { "--fill": 0 });
         process.steps.forEach((step, i) => {
-          tl.to(fill, { "--fill": () => stopAt(i), duration: i === 0 ? 0.6 : TRAVEL, ease: "power1.inOut" });
+          if (i > 0) tl.to(fill, { "--fill": () => stopAt(i), duration: TRAVEL, ease: "power1.inOut" });
           tl.call(() => setLit(i + 1));
           if (i === process.steps.length - 1) tl.call(celebrate);
           tl.to({}, { duration: readingTime(step) });
@@ -105,7 +106,7 @@ export function Process() {
   return (
     <section ref={root} id="process" aria-labelledby="process-title" className="scroll-mt-20 bg-surface-alt px-gutter py-section-sm">
       <div className="mx-auto flex max-w-content flex-col gap-group">
-        <SectionHeading id="process-title" title={process.title} label={process.label} align="start" />
+        <SectionHeading id="process-title" title={process.title} label={process.label} />
         <div data-timeline className="timeline">
           <span data-rail className="timeline-rail" aria-hidden="true">
             <span data-fill className="timeline-fill" />
@@ -142,7 +143,7 @@ export function Process() {
             <button
               type="button"
               onClick={replay}
-              className="inline-flex min-h-tap items-center gap-2 font-display text-label font-semibold uppercase text-accent underline decoration-1 underline-offset-6 hover:text-accent-deep"
+              className="inline-flex items-center gap-2 py-3 font-display text-label font-semibold uppercase link-sweep text-accent"
             >
               <RotateCcw size={14} strokeWidth={1.75} aria-hidden="true" />
               {process.replayLabel}
