@@ -9,47 +9,43 @@ import type { MosaicPhoto } from "@/content/site";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-// How far each photo drifts inside its frame while it crosses the screen (percent of its height)
-const drift = { a: 6, b: 10, c: 14 } as const;
+// Each frame drifts at its own speed (px, desktop only) and each photo drifts inside its frame
+// (percent of its height), so the mosaic feels like moving pictures as you scroll.
+const frameShift = { a: 30, b: 90, c: 160 } as const;
+const photoDrift = { a: 6, b: 10, c: 14 } as const;
 
-/**
- * Recent weddings mosaic. Each photo starts out of place and snaps into its spot as it
- * scrolls into view, then drifts gently inside its frame. Reduced motion: static mosaic.
- */
+/** Recent weddings mosaic: photos sit in place; parallax only. Reduced motion: still. */
 export function WeddingsMosaic({ photos }: { photos: MosaicPhoto[] }) {
   const root = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.utils.toArray<HTMLElement>("[data-tile]").forEach((tile, i) => {
-          gsap.from(tile, {
-            y: 120,
-            scale: 0.88,
-            autoAlpha: 0,
-            clipPath: "inset(12% 8% 12% 8%)",
-            duration: 1.1,
-            ease: "expo.out",
-            delay: (i % 2) * 0.08,
-            scrollTrigger: { trigger: tile, start: "top 90%", once: true },
-          });
+      mm.add(
+        { motion: "(prefers-reduced-motion: no-preference)", desktop: "(width >= 48rem)" },
+        (context) => {
+          const { motion, desktop } = context.conditions as { motion: boolean; desktop: boolean };
+          if (!motion) return;
+          gsap.utils.toArray<HTMLElement>("[data-tile]").forEach((tile) => {
+            const speed = tile.dataset.speed as keyof typeof frameShift;
+            const scroll = { trigger: tile, start: "top bottom", end: "bottom top", scrub: true };
 
-          const img = tile.querySelector("img");
-          const amount = Number(tile.dataset.drift);
-          if (img) {
-            gsap.fromTo(
-              img,
-              { yPercent: -amount, scale: 1 + amount / 50 },
-              {
-                yPercent: amount,
-                ease: "none",
-                scrollTrigger: { trigger: tile, start: "top bottom", end: "bottom top", scrub: true },
-              },
-            );
-          }
-        });
-      });
+            if (desktop) {
+              gsap.fromTo(tile, { y: frameShift[speed] }, { y: -frameShift[speed], ease: "none", scrollTrigger: scroll });
+            }
+
+            const img = tile.querySelector("img");
+            if (img) {
+              const drift = photoDrift[speed];
+              gsap.fromTo(
+                img,
+                { yPercent: -drift, scale: 1 + drift / 50 },
+                { yPercent: drift, scale: 1 + drift / 50, ease: "none", scrollTrigger: scroll },
+              );
+            }
+          });
+        },
+      );
       return () => mm.revert();
     },
     { scope: root },
@@ -58,7 +54,7 @@ export function WeddingsMosaic({ photos }: { photos: MosaicPhoto[] }) {
   return (
     <div ref={root} className="mosaic mx-auto mt-group max-w-wide">
       {photos.map((photo, i) => (
-        <div key={photo.src} data-tile data-drift={drift[photo.speed]} className={`relative overflow-hidden ${photo.ratio}`}>
+        <div key={photo.src} data-tile data-speed={photo.speed} className={`relative overflow-hidden ${photo.ratio}`}>
           <Image
             src={photo.src}
             alt={photo.alt}
