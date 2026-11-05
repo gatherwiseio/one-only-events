@@ -228,36 +228,52 @@ export const reviews = {
   items: [
     {
       quote:
-        "I truly never thought I'd be able to say my wedding day went perfectly, but it honestly did, and Sunny was the biggest reason why. … People constantly asked me, “Are you stressed?” My answer was always the same: “No, because we have Sunny.”",
+        "I truly never thought I'd be able to say my wedding day went perfectly, but it honestly did, and Sunny was the biggest reason why. … People constantly asked me, “Are you stressed?” My answer was always the same: “No, because we have Sunny.”",
       name: "Samantha S.",
       source: "The Knot",
       date: "August 2026",
     },
     {
       quote:
-        "On the morning of our big day, the large Kona Low storm came in and closed down our venue. What could have been a disaster turned into the most magical day. Within a handful of hours, Sunny planned a whole new wedding at a safer venue that turned into a perfect fit!",
+        "Working with Sunny literally felt like I was planning a party with a friend. … She was like a ninja in the background getting everything done and running the whole show so smoothly.",
+      name: "Kelly V.",
+      source: "The Knot",
+      date: "July 2026",
+    },
+    {
+      quote:
+        "Sunny is AMAZING!! … We were planning from long distance and she handled everything so well. … She brought all of the visions to life (without us seeing). Definitely will take all the stress away from any bride & groom.",
+      name: "Natasha P.",
+      source: "The Knot",
+      date: "May 2026",
+    },
+    {
+      quote:
+        "As a couple with full-time jobs, we knew we needed someone who was on top of things and able to keep us on track—she did exactly that over the 1.5 years we worked with her. … Our wedding day was PERFECT, and all of our guests shared how much fun they had.",
+      name: "Elysha F.",
+      source: "The Knot",
+      date: "April 2026",
+    },
+    {
+      quote:
+        "On the morning of our big day, the large Kona Low storm came in and closed down our venue. What could have been a disaster turned into the most magical day. Within a handful of hours, Sunny planned a whole new wedding at a safer venue that turned into a perfect fit!",
       name: "Talia S.",
       source: "The Knot and WeddingWire",
       date: "April 2026",
     },
     {
       quote:
-        "Working with Sunny literally felt like I was planning a party with a friend. … She was like a ninja in the background getting everything done and running the whole show so smoothly.",
-      name: "Kelly V.",
+        "Planning a destination wedding can be overwhelming, but Sunny made the entire process seamless. … I can wholeheartedly say, picking Sunny to be our full-service wedding planner was the absolute best decision! She truly made our wedding iconic and our guests still rave about it.",
+      name: "Monique F.",
       source: "The Knot",
-      date: "July 2026",
+      date: "April 2026",
     },
   ] satisfies Review[],
-  links: [
-    { label: "Read reviews on The Knot", href: business.theKnot },
-    { label: "Read reviews on WeddingWire", href: business.weddingWire },
-  ],
 };
 
 export const faq = {
   title: "FAQs",
-  label: "Good to know",
-  intro: "The questions couples ask us most. Don't see yours? Ask away when you reach out.",
+  label: "Answers to what couples ask us most",
   items: [
     {
       question: "How much does a wedding planner in Hawaiʻi cost?",
@@ -287,8 +303,8 @@ export const cta = {
   label: "Weddings throughout the islands",
   body: "Tell us about the two of you and the celebration you're dreaming of. We'll take it from there, together.",
   image: {
-    src: "/images/cta/tent-reception-palms.jpg",
-    alt: "A white reception tent glowing at dusk on a lawn among tall palm trees",
+    src: "/images/cta/arch-mokolii-palms.jpg",
+    alt: "A round floral arch at the end of a palm-lined ceremony aisle, framing Mokoliʻi and the ocean",
   },
   primary: { ...contactPage, label: "Start your inquiry" },
 };

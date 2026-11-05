@@ -1,4 +1,3 @@
-import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { reviews } from "@/content/site";
 
@@ -17,13 +16,6 @@ export function Reviews() {
               </span>
             </figcaption>
           </figure>
-        ))}
-      </div>
-      <div className="mt-10 flex flex-wrap gap-x-10 md:justify-center gap-y-2">
-        {reviews.links.map((link) => (
-          <Button key={link.href} href={link.href} external>
-            {link.label}
-          </Button>
         ))}
       </div>
     </section>

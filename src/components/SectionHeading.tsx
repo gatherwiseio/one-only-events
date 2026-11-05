@@ -29,7 +29,7 @@ export function SectionHeading({ id, title, label, align = "center", tone = "lig
       <Tag id={id} className={`font-display text-title font-normal uppercase ${titleTone[tone]}`}>
         {title}
       </Tag>
-      {label ? <p className={`font-display text-label font-medium uppercase ${labelClass}`}>{label}</p> : null}
+      {label ? <p className={`font-display text-label font-medium text-balance uppercase ${labelClass}`}>{label}</p> : null}
     </div>
   );
 }
